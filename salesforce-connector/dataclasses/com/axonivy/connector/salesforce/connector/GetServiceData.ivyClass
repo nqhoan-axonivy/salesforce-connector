@@ -1,0 +1,4 @@
+GetServiceData #class
+com.axonivy.connector.salesforce.connector #namespace
+id String #field
+opptunity com.axonivy.connector.salesforce.model.Opportunity #field

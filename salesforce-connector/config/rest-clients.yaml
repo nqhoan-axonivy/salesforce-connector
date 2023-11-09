@@ -1,0 +1,14 @@
+RestClients:
+  SalesforceAPI:
+    UUID: a8bd1ef0-7283-4211-9672-3231654ad15f
+    Url: https://{subdomain}.my.salesforce.com/services/data/v58.0
+    Features:
+    - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
+    - com.axonivy.connector.salesforce.auth.OAuth2Feature
+    Properties:
+      PATH.subdomain: ${ivy.var.salesforce-connector.auth.subdomain}
+      AUTH.baseUri: https://${ivy.var.salesforce-connector.auth.subdomain}.my.salesforce.com/services/oauth2
+      AUTH.appId: ${ivy.var.salesforce-connector.auth.clientId}
+      AUTH.secretKey: ${ivy.var.salesforce-connector.auth.clientSecret}
+      AUTH.useAppPermissions: ${ivy.var.salesforce-connector.auth.useAppPermissions}
+      AUTH.scope: ${ivy.var.salesforce-connector.auth.permissions}

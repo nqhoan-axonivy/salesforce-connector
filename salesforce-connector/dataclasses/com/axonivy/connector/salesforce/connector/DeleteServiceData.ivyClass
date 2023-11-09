@@ -1,0 +1,4 @@
+DeleteServiceData #class
+com.axonivy.connector.salesforce.connector #namespace
+id String #field
+id PERSISTENT #fieldModifier
