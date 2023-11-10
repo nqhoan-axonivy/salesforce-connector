@@ -1,2 +1,8 @@
 Data #class
 salesforce.connector.demo #namespace
+opps java.util.List<com.axonivy.connector.salesforce.model.Opportunity> #field
+opps PERSISTENT #fieldModifier
+id String #field
+id PERSISTENT #fieldModifier
+acc com.axonivy.connector.salesforce.model.Account #field
+acc PERSISTENT #fieldModifier

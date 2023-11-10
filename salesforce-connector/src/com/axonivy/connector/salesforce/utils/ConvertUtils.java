@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import com.axonivy.connector.salesforce.model.Account;
 import com.axonivy.connector.salesforce.model.Opportunity;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -32,6 +33,12 @@ public class ConvertUtils {
 		
 		List<Opportunity> opportunities = mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Opportunity>>(){});
 		return opportunities;
+	}
+	
+	public static Account convertToAccount(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		Account acc = mapper.readValue( mapper.treeAsTokens(jsonNode), Account.class);
+		return acc;
 	}
 	
 	public static <T extends Object> T getObject(Class cls, T object) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {

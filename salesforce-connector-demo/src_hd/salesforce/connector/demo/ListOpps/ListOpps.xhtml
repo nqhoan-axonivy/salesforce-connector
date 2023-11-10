@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition template="/layouts/basic-10.xhtml">
+		<ui:define name="title">ListOpps</ui:define>
+		<ui:define name="content">
+			<h:form id="form">
+				<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+				<div class="ui-fluid">
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-12 ui-lg-12">
+							<p:dataTable id="oppDataTable" widgetVar="oppDataTable"
+								value="#{data.bean.opps}" var="opp" rowKey="#{opp.id}"
+								rows="10" paginator="true" 
+								paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+								currentPageReportTemplate="({currentPage} of {totalPages})"
+								rowsPerPageTemplate="5,10,20" paginatorPosition="bottom"
+								emptyMessage="No records found">
+
+								<p:column
+									headerText="#{ivy.cms.co('/Dialogs/listOpps/oppName')}"
+									width="120px;" sortBy="#{opp.oppName}"
+									filterBy="#{opp.oppName}" filterMatchMode="contains">
+									<p:commandLink value="#{opp.oppName}" actionListener="#{data.bean.openOpportunityDetail(opp.id)}"/>
+								</p:column>
+								<p:column
+									headerText="#{ivy.cms.co('/Dialogs/listOpps/accName')}"
+									width="100px;" sortBy="#{opp.accName}"
+									filterBy="#{opp.accName}" filterMatchMode="contains">
+									<h:outputText value="#{opp.accName}" />
+								</p:column>
+								<p:column
+									headerText="#{ivy.cms.co('/Dialogs/listOpps/amount')}"
+									width="100px;" sortBy="#{opp.amount}"
+									filterBy="#{opp.amount}" filterMatchMode="contains">
+									<h:outputText value="#{opp.amount}" />
+								</p:column>
+								<p:column
+									headerText="#{ivy.cms.co('/Dialogs/listOpps/closeDate')}"
+									width="100px;" sortBy="#{opp.closeDate}"
+									filterBy="#{opp.closeDate}" filterMatchMode="contains">
+									<h:outputText value="#{opp.closeDate}">
+										<f:convertDateTime pattern="dd.MM.yyyy" />
+									</h:outputText>
+								</p:column>
+								<p:column
+									headerText="#{ivy.cms.co('/Dialogs/listOpps/stage')}"
+									width="100px;" sortBy="#{opp.stage}"
+									filterBy="#{opp.stage}" filterMatchMode="contains">
+									<h:outputText value="#{opp.stage}" />
+								</p:column>
+								<p:column id="actionColumn" toggleable="false" headerText="#{ivy.cms.co('/Dialogs/listOpps/action')}" width="60px;" exportable="false" selectRow="false">
+									<p:commandLink id="edit">
+										<i class="fa fa-pencil" />
+									</p:commandLink>
+									<p:commandLink  id="delete"  styleClass="textDecorationNone">
+										<i class="fa fa-trash margin4" />
+									</p:commandLink>
+								</p:column>
+							</p:dataTable>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="command-btns">
+					<p:commandButton id="proceed" actionListener="#{logic.close}"
+						value="Close" update="form" icon="si si-close" />
+				</div>
+			</h:form>
+
+			<style>
+				.textDecorationNone {
+					text-decoration: none !important;
+				}
+				.margin4 {
+				   margin: 4px;	
+				}
+			</style>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

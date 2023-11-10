@@ -1,0 +1,69 @@
+{
+  "format" : "10.0.0",
+  "id" : "18B94A82C6477832",
+  "kind" : "CALLABLE_SUB",
+  "config" : {
+    "data" : "com.axonivy.connector.salesforce.connector.ListServiceData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "call(String)",
+      "config" : {
+        "callSignature" : "call",
+        "input" : {
+          "params" : [
+            { "name" : "query", "type" : "String" }
+          ],
+          "map" : {
+            "out.query" : "param.query"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "opps", "type" : "java.util.List<com.axonivy.connector.salesforce.model.Opportunity>" }
+          ],
+          "map" : {
+            "result.opps" : "in.opps"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 64 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 424, "y" : 64 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "RestClientCall",
+      "name" : "List Oppotunities",
+      "config" : {
+        "path" : "/query",
+        "clientId" : "a8bd1ef0-7283-4211-9672-3231654ad15f",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "q" : "in.query"
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "templateParams" : {
+          "subdomain" : ""
+        },
+        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
+        "responseCode" : [
+          "import com.axonivy.connector.salesforce.utils.ConvertUtils;",
+          "",
+          "ivy.log.info(result);",
+          "in.opps = ConvertUtils.convertToListOpportunity(result);"
+        ]
+      },
+      "visual" : {
+        "at" : { "x" : 264, "y" : 64 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    } ]
+}
