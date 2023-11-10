@@ -53,12 +53,12 @@
         "dialogId" : "salesforce.connector.demo.ListOpps",
         "startMethod" : "start(java.util.List<com.axonivy.connector.salesforce.model.Opportunity>)",
         "case" : {
-          "name" : "List all Opportunities",
-          "description" : "List all Opportunities"
+          "name" : "List Opportunities",
+          "description" : "List Opportunities"
         },
         "task" : {
-          "name" : "List all Opportunities",
-          "description" : "List all Opportunities",
+          "name" : "List Opportunities",
+          "description" : "List Opportunities",
           "skipTasklist" : true
         },
         "call" : {

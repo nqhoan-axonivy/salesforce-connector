@@ -20,7 +20,7 @@ import salesforce.connector.demo.dto.OpportunityDTO;
 public class ListOppsBean {
 	List<Opportunity> opportunities;
 	List<OpportunityDTO> opps;
-	private OpportunityDTO selectedOpp;
+	private Opportunity selectedOpp;
 	
 	public ListOppsBean(List<Opportunity> list) {
 		opps = new ArrayList<>();
@@ -31,7 +31,7 @@ public class ListOppsBean {
 	}
 
 	private String getAccName(String accountId) {
-		Account acc = SubProcessCall.withPath("Functional Processes/getAccService")
+		Account acc = SubProcessCall.withPath("Functional Processes/getAccount")
 				.withStartSignature("getAccount(String)")
 		         .withParam("id", accountId)
 		         .call()
@@ -40,8 +40,12 @@ public class ListOppsBean {
 	}
 	
 	public void openOpportunityDetail(String id) {
-		 selectedOpp = opps.stream().filter(o -> o.getId().equals(id)).findFirst().orElse(null);
-		 Ivy.log().info("selected ne: " + selectedOpp);
+		 selectedOpp = SubProcessCall.withPath("Functional Processes/getOpportunity")
+					.withStartSignature("getOpportunity(String)")
+			         .withParam("id", id)
+			         .call()
+			         .get("opp", Opportunity.class);
+		 Ivy.log().info("opp detail ne: " + selectedOpp);
 	}
 
 	public List<Opportunity> getOpportunities() {
@@ -60,11 +64,11 @@ public class ListOppsBean {
 		this.opps = opps;
 	}
 
-	public OpportunityDTO getSelectedOpp() {
+	public Opportunity getSelectedOpp() {
 		return selectedOpp;
 	}
 
-	public void setSelectedOpp(OpportunityDTO selectedOpp) {
+	public void setSelectedOpp(Opportunity selectedOpp) {
 		this.selectedOpp = selectedOpp;
 	}
 	
