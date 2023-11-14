@@ -21,6 +21,7 @@ public class ListOppsBean {
 	List<Opportunity> opportunities;
 	List<OpportunityDTO> opps;
 	private Opportunity selectedOpp;
+	private String accountName;
 	
 	public ListOppsBean(List<Opportunity> list) {
 		opps = new ArrayList<>();
@@ -30,7 +31,7 @@ public class ListOppsBean {
 		opps = opportunities.stream().map( o -> new OpportunityDTO(o.getId(), o.getName(), getAccName(o.getAccountId()), o.getAmount(), o.getCloseDate(), o.getStageName())).collect(Collectors.toList());
 	}
 
-	private String getAccName(String accountId) {
+	public static String getAccName(String accountId) {
 		Account acc = SubProcessCall.withPath("Functional Processes/getAccount")
 				.withStartSignature("getAccount(String)")
 		         .withParam("id", accountId)
@@ -45,7 +46,7 @@ public class ListOppsBean {
 			         .withParam("id", id)
 			         .call()
 			         .get("opp", Opportunity.class);
-		 Ivy.log().info("opp detail ne: " + selectedOpp);
+		 accountName = getAccName(selectedOpp.getAccountId());
 	}
 
 	public List<Opportunity> getOpportunities() {
@@ -70,6 +71,14 @@ public class ListOppsBean {
 
 	public void setSelectedOpp(Opportunity selectedOpp) {
 		this.selectedOpp = selectedOpp;
+	}
+
+	public String getAccountName() {
+		return accountName;
+	}
+
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
 	
 	
