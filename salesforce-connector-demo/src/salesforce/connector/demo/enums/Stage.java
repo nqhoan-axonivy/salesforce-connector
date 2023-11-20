@@ -10,7 +10,7 @@ public enum Stage {
 	PROPOSAL_PRICE_QUOTE("Proposal/Price Quote"),
 	NEGOTIATION_REVIEW("Negotiation/Review"),
 	CLOSED_WON("Closed Won"),
-	CLOSED_LOST("Closed_Lost");
+	CLOSED_LOST("Closed Lost");
 
 	public final String label;
 	

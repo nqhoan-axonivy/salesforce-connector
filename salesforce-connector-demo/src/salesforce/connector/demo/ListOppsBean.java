@@ -1,6 +1,7 @@
 package salesforce.connector.demo;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,33 +33,45 @@ public class ListOppsBean {
 	private Opportunity selectedOpp;
 	private String accountName;
 	private BarChartModel barModel;
+	private int renderView; // 1: detail, 2: add new, 3: edit
+	String ownerId;
 	
-	public ListOppsBean(List<Opportunity> list) {
+	public ListOppsBean() {
+		ownerId= "0055h000009a4XMAAY";
 		opps = new ArrayList<>();
-		opportunities = new ArrayList<>(list);
+		getAllOpps();
 		Ivy.log().info("list ne: " + opportunities.size());
 		
-		opps = opportunities.stream().map( o -> new OpportunityDTO(o.getId(), o.getName(), getAccName(o.getAccountId()), o.getAmount(), o.getCloseDate(), o.getStageName())).collect(Collectors.toList());
+		opps = Utils.convertToOppDTO(opportunities);
 		
 		createBarChartModel();
 	}
 
-	public static String getAccName(String accountId) {
-		Account acc = SubProcessCall.withPath("Functional Processes/getAccount")
-				.withStartSignature("getAccount(String)")
-		         .withParam("id", accountId)
-		         .call()
-		         .get("acc", Account.class);
-		return acc.getName();
-	}
+	
 	
 	public void openOpportunityDetail(String id) {
-		 selectedOpp = SubProcessCall.withPath("Functional Processes/getOpportunity")
-					.withStartSignature("getOpportunity(String)")
-			         .withParam("id", id)
-			         .call()
-			         .get("opp", Opportunity.class);
-		 accountName = getAccName(selectedOpp.getAccountId());
+		renderView = 1;
+		selectedOpp = SubProcessCall.withPath("Functional Processes/getOpportunity")
+				.withStartSignature("getOpportunity(String)")
+				.withParam("id", id)
+				.call()
+				.get("opp", Opportunity.class);
+		accountName = Utils.getAccName(selectedOpp.getAccountId());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void getAllOpps() {
+		opportunities = (List<Opportunity>) SubProcessCall.withPath("Functional Processes/getAllOpps")
+				.withStartSignature("getAllOpps()")
+		         .call()
+		         .get("opps", Opportunity.class);
+	}
+	
+	public void addNewOppotunity() {
+		accountName = null;
+		renderView = 2;
+		selectedOpp = new Opportunity();
+		selectedOpp.setOwnerId(ownerId);
 	}
 	
 	private void createBarChartModel() {
@@ -188,6 +201,24 @@ public class ListOppsBean {
 
 	public void setBarModel(BarChartModel barModel) {
 		this.barModel = barModel;
+	}
+
+	public int getRenderView() {
+		return renderView;
+	}
+
+	public void setRenderView(int renderView) {
+		this.renderView = renderView;
+	}
+
+	public String getOwnerId() {
+		return ownerId;
+	}
+
+
+
+	public void setOwnerId(String ownerId) {
+		this.ownerId = ownerId;
 	}
 	
 	

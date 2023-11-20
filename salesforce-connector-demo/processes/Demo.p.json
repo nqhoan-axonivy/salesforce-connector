@@ -15,63 +15,32 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : { "id" : "f3", "to" : "f5" }
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 512, "y" : 64 }
+        "at" : { "x" : 440, "y" : 64 }
       }
-    }, {
-      "id" : "f3",
-      "type" : "SubProcessCall",
-      "name" : "Get list Opportunities",
-      "config" : {
-        "call" : {
-          "params" : [
-            { "name" : "query", "type" : "String" }
-          ],
-          "code" : "param.query = \"Select FIELDS(ALL) from Opportunity LIMIT 200\";"
-        },
-        "processCall" : "ListOppService:call(String)",
-        "output" : {
-          "map" : {
-            "out" : "in",
-            "out.opps" : "result.opps"
-          }
-        }
-      },
-      "visual" : {
-        "at" : { "x" : 224, "y" : 64 }
-      },
-      "connect" : { "id" : "f6", "to" : "f5" }
     }, {
       "id" : "f5",
       "type" : "UserTask",
       "name" : "ListOpps",
       "config" : {
         "dialogId" : "salesforce.connector.demo.ListOpps",
-        "startMethod" : "start(java.util.List<com.axonivy.connector.salesforce.model.Opportunity>)",
+        "startMethod" : "start()",
         "case" : {
-          "name" : "List Opportunities",
-          "description" : "List Opportunities"
+          "name" : "Opportunities",
+          "description" : "Opportunities"
         },
         "task" : {
-          "name" : "List Opportunities",
-          "description" : "List Opportunities",
+          "name" : "Opportunities",
+          "description" : "Opportunities",
           "skipTasklist" : true
-        },
-        "call" : {
-          "params" : [
-            { "name" : "opps", "type" : "java.util.List<com.axonivy.connector.salesforce.model.Opportunity>" }
-          ],
-          "map" : {
-            "param.opps" : "in.opps"
-          }
         }
       },
       "visual" : {
-        "at" : { "x" : 384, "y" : 64 }
+        "at" : { "x" : 272, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ]

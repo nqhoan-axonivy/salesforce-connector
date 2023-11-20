@@ -3,6 +3,7 @@ package com.axonivy.connector.salesforce.utils;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.axonivy.connector.salesforce.model.Account;
 import com.axonivy.connector.salesforce.model.Opportunity;
@@ -11,6 +12,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import ch.ivyteam.ivy.process.call.SubProcessCall;
 
 public class ConvertUtils {
 //	public static List<Pet> convertStringToList(String jonStr) throws JsonMappingException, JsonProcessingException {
