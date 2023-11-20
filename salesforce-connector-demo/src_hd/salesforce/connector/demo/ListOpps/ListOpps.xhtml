@@ -7,10 +7,23 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/basic-10.xhtml">
-		<ui:define name="title">ListOpps</ui:define>
+		<ui:define name="title">List Opportunities</ui:define>
 		<ui:define name="content">
 			<h:form id="form">
 				<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+				<div class="ui-fluid">
+					<div class="ui-g">
+						<div class="ui-g-12 ui-md-12 ui-lg-12">
+					        <div class="card">
+					            <p:barChart model="#{data.bean.barModel}" style="width: 100%; height: 400px;"/>
+					        </div>
+					    </div>
+					</div>
+				</div>
+				<div class="command-btns">
+					<p:commandButton id="add" 
+						value="Add New" update="form" icon="si si-add" />
+				</div>
 				<div class="ui-fluid">
 					<div class="ui-g">
 						<div class="ui-g-12 ui-md-12 ui-lg-12">
@@ -219,7 +232,7 @@
 									</div>
 								</div>
 							</div>
-							<h:panelGroup styleClass="right width100percent">
+							<h:panelGroup>
 								<div class="ui-g">
 									<div class="ui-g-12 ui-md-6 ui-lg-6" />
 									<div class="ui-g-12 ui-md-3 ui-lg-3">
