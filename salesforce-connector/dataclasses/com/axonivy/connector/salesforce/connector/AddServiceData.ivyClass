@@ -1,3 +1,4 @@
 AddServiceData #class
 com.axonivy.connector.salesforce.connector #namespace
 oppotunity com.axonivy.connector.salesforce.model.Opportunity #field
+oppResponse com.axonivy.connector.salesforce.response.CreateOppResponse #field

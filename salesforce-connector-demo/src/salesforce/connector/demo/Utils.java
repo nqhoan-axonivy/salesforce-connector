@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import com.axonivy.connector.salesforce.model.Account;
 import com.axonivy.connector.salesforce.model.Opportunity;
+import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;
 
 import ch.ivyteam.ivy.process.call.SubProcessCall;
 import salesforce.connector.demo.dto.OpportunityDTO;
@@ -25,5 +26,9 @@ public class Utils {
 	
 	public static OpportunityDTO convertToOppDTO(Opportunity o) {
 		return new OpportunityDTO(o.getId(), o.getName(), getAccName(o.getAccountId()), o.getAmount(), o.getCloseDate(), o.getStageName());
+	}
+	
+	public static OpportunityDTO convertToOppDTO(Opportunity o, OpportunityUpdateDTO o1) {
+		return new OpportunityDTO(o.getId(), o1.getName(), getAccName(o1.getAccountId()), o1.getAmount(), o1.getCloseDate(), o1.getStageName());
 	}
 }

@@ -172,18 +172,19 @@
         "call" : {
           "params" : [
             { "name" : "id", "type" : "String" },
-            { "name" : "oppotunity", "type" : "com.axonivy.connector.salesforce.model.Opportunity" }
+            { "name" : "opportunityUpdateDTO", "type" : "com.axonivy.connector.salesforce.model.OpportunityUpdateDTO" }
           ],
           "code" : [
-            "import com.axonivy.connector.salesforce.model.Opportunity;",
-            "Opportunity opp = new Opportunity();",
+            "import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;",
+            "",
+            "OpportunityUpdateDTO opp = new OpportunityUpdateDTO();",
             "opp.name = \"Opp test 2 update\";",
             "",
             "param.id = \"0065h00000LQcKfAAL\";",
-            "param.oppotunity = opp;"
+            "param.opportunityUpdateDTO = opp;"
           ]
         },
-        "processCall" : "UpdateOppService:call(String,com.axonivy.connector.salesforce.model.Opportunity)"
+        "processCall" : "UpdateOppService:call(String,com.axonivy.connector.salesforce.model.OpportunityUpdateDTO)"
       },
       "visual" : {
         "at" : { "x" : 272, "y" : 616 }

@@ -65,6 +65,12 @@
       "name" : "AddOppService",
       "config" : {
         "processCall" : "AddOppService:call(com.axonivy.connector.salesforce.model.Opportunity)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.bean.selectedOpp.id" : "result.opp.id"
+          }
+        },
         "call" : {
           "params" : [
             { "name" : "oppotunity", "type" : "com.axonivy.connector.salesforce.model.Opportunity" }
@@ -97,8 +103,8 @@
             "",
             "in.bean.opportunities.add(0,in.bean.selectedOpp);",
             "in.bean.opps.add(0,utils.convertToOppDTO(in.bean.selectedOpp));",
-            "ivy.log.info(\"after add new: \" + in.bean.opportunities.size());",
-            "ivy.log.info(\"after add new opps: \" + in.bean.opps.size());"
+            "",
+            "in.bean.reset();"
           ]
         }
       },
@@ -119,5 +125,70 @@
         "at" : { "x" : 224, "y" : 280 }
       },
       "connect" : { "id" : "f8", "to" : "f7" }
+    }, {
+      "id" : "f15",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "update()",
+      "config" : {
+        "callSignature" : "update",
+        "guid" : "18BF5BD97C43B688"
+      },
+      "visual" : {
+        "at" : { "x" : 88, "y" : 416 }
+      },
+      "connect" : { "id" : "f21", "to" : "f20" }
+    }, {
+      "id" : "f17",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 712, "y" : 416 }
+      }
+    }, {
+      "id" : "f16",
+      "type" : "SubProcessCall",
+      "name" : "UpdateOppService",
+      "config" : {
+        "processCall" : "UpdateOppService:call(String,com.axonivy.connector.salesforce.model.OpportunityUpdateDTO)",
+        "call" : {
+          "params" : [
+            { "name" : "id", "type" : "String" },
+            { "name" : "opportunityUpdateDTO", "type" : "com.axonivy.connector.salesforce.model.OpportunityUpdateDTO" }
+          ],
+          "map" : {
+            "param.id" : "in.bean.selectedOpp.id",
+            "param.opportunityUpdateDTO" : "in.bean.updateDTO"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 424, "y" : 416 }
+      },
+      "connect" : { "id" : "f23", "to" : "f22" }
+    }, {
+      "id" : "f20",
+      "type" : "Script",
+      "name" : "convet to Update obj DTO",
+      "config" : {
+        "output" : {
+          "code" : "in.bean.convertToUpdateDTO();"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 416 }
+      },
+      "connect" : { "id" : "f18", "to" : "f16" }
+    }, {
+      "id" : "f22",
+      "type" : "Script",
+      "name" : "Update current List",
+      "config" : {
+        "output" : {
+          "code" : "in.bean.updateCurrentListAfterUpdate();"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 584, "y" : 416 }
+      },
+      "connect" : { "id" : "f19", "to" : "f17" }
     } ]
 }

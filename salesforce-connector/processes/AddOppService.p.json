@@ -18,6 +18,14 @@
           "map" : {
             "out.oppotunity" : "param.oppotunity"
           }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "opp", "type" : "com.axonivy.connector.salesforce.response.CreateOppResponse" }
+          ],
+          "map" : {
+            "result.opp" : "in.oppResponse"
+          }
         }
       },
       "visual" : {
@@ -46,7 +54,12 @@
         "bodyObjectType" : "com.axonivy.connector.salesforce.model.Opportunity",
         "resultType" : "com.fasterxml.jackson.databind.JsonNode",
         "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(result);"
+        "responseCode" : [
+          "import com.axonivy.connector.salesforce.utils.ConvertUtils;",
+          "ivy.log.info(result);",
+          "in.oppResponse = ConvertUtils.convertToOpportunityResponse(result);",
+          "ivy.log.info(in.oppResponse.id);"
+        ]
       },
       "visual" : {
         "at" : { "x" : 288, "y" : 64 }

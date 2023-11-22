@@ -23,8 +23,9 @@
 				<br />
 				<br />
 				<div class="command-btns">
-					<p:commandButton id="add" actionListener="#{data.bean.addNewOppotunity()}" oncomplete="PF('opportunityUpdateDialog').show()" update="opportunityDetail"
-						value="Add New" icon="si si-add" />
+					<p:commandButton id="add" actionListener="#{data.bean.addNewOppotunity()}" oncomplete="PF('opportunityCreateDialog').show()"
+						value="Add New" icon="si si-add">						
+					</p:commandButton>
 				</div>
 				<div class="ui-fluid">
 					<div class="ui-g">
@@ -70,7 +71,7 @@
 									<h:outputText value="#{opp.stage}" />
 								</p:column>
 								<p:column id="actionColumn" toggleable="false" headerText="#{ivy.cms.co('/Dialogs/listOpps/action')}" width="60px;" exportable="false" selectRow="false">
-									<p:commandLink id="edit">
+									<p:commandLink id="edit" actionListener="#{data.bean.updateOppotunity(opp.id)}" oncomplete="PF('opportunityUpdateDialog').show()" update="#{p:resolveFirstComponentWithId('opportunityUpdatelForm', view).clientId}">
 										<i class="fa fa-pencil" />
 									</p:commandLink>
 									<p:commandLink  id="delete"  styleClass="textDecorationNone">
@@ -90,6 +91,7 @@
 			
 			<ui:include src="OppDetail.xhtml"></ui:include>
 			<ui:include src="updateOppotunity.xhtml"></ui:include>
+			<ui:include src="createOppotunity.xhtml"></ui:include>
 
 			<style>
 				.textDecorationNone {

@@ -8,22 +8,22 @@
   "elements" : [ {
       "id" : "f0",
       "type" : "CallSubStart",
-      "name" : "call(String,Opportunity)",
+      "name" : "call(String,OpportunityUpdateDTO)",
       "config" : {
         "callSignature" : "call",
         "input" : {
           "params" : [
             { "name" : "id", "type" : "String" },
-            { "name" : "oppotunity", "type" : "com.axonivy.connector.salesforce.model.Opportunity" }
+            { "name" : "opportunityUpdateDTO", "type" : "com.axonivy.connector.salesforce.model.OpportunityUpdateDTO" }
           ],
           "map" : {
             "out.id" : "param.id",
-            "out.oppotunity" : "param.oppotunity"
+            "out.oppotunity" : "param.opportunityUpdateDTO"
           }
         },
         "result" : {
           "params" : [
-            { "name" : "opp", "type" : "com.axonivy.connector.salesforce.model.Opportunity" }
+            { "name" : "opp", "type" : "com.axonivy.connector.salesforce.model.OpportunityUpdateDTO" }
           ]
         }
       },
@@ -35,7 +35,7 @@
       "id" : "f1",
       "type" : "CallSubEnd",
       "visual" : {
-        "at" : { "x" : 392, "y" : 64 }
+        "at" : { "x" : 520, "y" : 64 }
       }
     }, {
       "id" : "f3",
@@ -50,7 +50,7 @@
         "clientErrorCode" : "ivy:error:rest:client",
         "method" : "PATCH",
         "statusErrorCode" : "ivy:error:rest:client",
-        "bodyObjectType" : "com.axonivy.connector.salesforce.model.Opportunity",
+        "bodyObjectType" : "com.axonivy.connector.salesforce.model.OpportunityUpdateDTO",
         "templateParams" : {
           "subdomain" : "",
           "id" : "in.id"
@@ -60,7 +60,7 @@
         "responseCode" : "ivy.log.info(\"response: \" + response.getStatus());"
       },
       "visual" : {
-        "at" : { "x" : 256, "y" : 64 }
+        "at" : { "x" : 328, "y" : 64 }
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ]

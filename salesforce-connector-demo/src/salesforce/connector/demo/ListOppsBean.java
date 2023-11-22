@@ -1,10 +1,14 @@
 package salesforce.connector.demo;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import javax.faces.event.AjaxBehaviorEvent;
 
 import org.primefaces.model.charts.ChartData;
 import org.primefaces.model.charts.axes.cartesian.CartesianScales;
@@ -17,11 +21,11 @@ import org.primefaces.model.charts.optionconfig.animation.Animation;
 import org.primefaces.model.charts.optionconfig.legend.Legend;
 import org.primefaces.model.charts.optionconfig.legend.LegendLabel;
 import org.primefaces.model.charts.optionconfig.title.Title;
-import org.primefaces.model.charts.polar.PolarAreaChartDataSet;
-import org.primefaces.model.charts.polar.PolarAreaChartModel;
 
 import com.axonivy.connector.salesforce.model.Account;
 import com.axonivy.connector.salesforce.model.Opportunity;
+import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;
+import com.axonivy.connector.salesforce.utils.ConvertUtils;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.process.call.SubProcessCall;
@@ -34,10 +38,11 @@ public class ListOppsBean {
 	private Opportunity selectedOpp;
 	private String accountName;
 	private BarChartModel barModel;
-	private int renderView; // 1: detail, 2: add new, 3: edit
+	private int renderView; // 1: add new, 2: edit
 	String ownerId;
 	List<Account> accs;
 	List<String> stages;
+	private OpportunityUpdateDTO updateDTO;
 	
 	public ListOppsBean() {
 		ownerId= "0055h000009a4XMAAY";
@@ -51,7 +56,6 @@ public class ListOppsBean {
 	}
 	
 	public void openOpportunityDetail(String id) {
-		renderView = 1;
 		selectedOpp = SubProcessCall.withPath("Functional Processes/getOpportunity")
 				.withStartSignature("getOpportunity(String)")
 				.withParam("id", id)
@@ -77,11 +81,36 @@ public class ListOppsBean {
 	}
 	
 	public void addNewOppotunity() {
+		renderView = 1;
 		accountName = null;
 		selectedOpp = new Opportunity();
 		selectedOpp.setOwnerId(ownerId);
 		getAllAccounts();
 		getListStages();
+	}
+	
+	public void updateOppotunity(String id) {
+		updateDTO = new OpportunityUpdateDTO();
+		renderView = 2;
+		openOpportunityDetail(id);
+		getAllAccounts();
+		getListStages();
+	}
+	
+	public void convertToUpdateDTO() throws IllegalAccessException, InvocationTargetException {
+		selectedOpp.setAccountId(getAccountIdByName(accountName));
+		updateDTO = ConvertUtils.convertToOpportunityObjUpdate(selectedOpp);
+	}
+	
+	public void updateCurrentListAfterUpdate() {
+		OptionalInt result = IntStream.range(0, opps.size())
+                .filter(x -> selectedOpp.getId().equals(opps.get(x).getId()))
+                .findFirst();
+		if (result.isPresent())
+		{
+		   int index = result.getAsInt();
+		   opps.set(index, Utils.convertToOppDTO(selectedOpp, updateDTO));
+		}
 	}
 	
 	private void getListStages() {
@@ -107,6 +136,11 @@ public class ListOppsBean {
 		Account acc =  accs.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);
 		if(acc != null) accId = acc.getId();
 		return accId;
+	}
+	
+	public void reset() {
+		selectedOpp = new Opportunity();
+		accountName = null;
 	}
 	
 	private void createBarChartModel() {
@@ -264,6 +298,14 @@ public class ListOppsBean {
 
 	public List<String> getStages() {
 		return stages;
+	}
+
+	public OpportunityUpdateDTO getUpdateDTO() {
+		return updateDTO;
+	}
+
+	public void setUpdateDTO(OpportunityUpdateDTO updateDTO) {
+		this.updateDTO = updateDTO;
 	}
 	
 }
