@@ -1,6 +1,7 @@
 package salesforce.connector.demo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,6 +36,8 @@ public class ListOppsBean {
 	private BarChartModel barModel;
 	private int renderView; // 1: detail, 2: add new, 3: edit
 	String ownerId;
+	List<Account> accs;
+	List<String> stages;
 	
 	public ListOppsBean() {
 		ownerId= "0055h000009a4XMAAY";
@@ -46,8 +49,6 @@ public class ListOppsBean {
 		
 		createBarChartModel();
 	}
-
-	
 	
 	public void openOpportunityDetail(String id) {
 		renderView = 1;
@@ -67,11 +68,45 @@ public class ListOppsBean {
 		         .get("opps", Opportunity.class);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public void getAllAccounts() {
+		accs = (List<Account>) SubProcessCall.withPath("Functional Processes/getAccounts")
+				.withStartSignature("getAllAccounts()")
+		         .call()
+		         .get("accs", Account.class);
+	}
+	
 	public void addNewOppotunity() {
 		accountName = null;
-		renderView = 2;
 		selectedOpp = new Opportunity();
 		selectedOpp.setOwnerId(ownerId);
+		getAllAccounts();
+		getListStages();
+	}
+	
+	private void getListStages() {
+		stages = Arrays.stream(Stage
+				.values())
+				.map(e -> e.getLabel())
+				.collect(Collectors.toList());
+	}
+
+	public List<String> completeAccount(String query) {
+        String queryLowerCase = query.toLowerCase();
+        List<String> accountList = new ArrayList<>();
+        List<Account> acccountList = accs;
+        for (Account acc : acccountList) {
+        	accountList.add(acc.getName());
+        }
+
+        return accountList.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
+    }
+	
+	public String getAccountIdByName(String name) {
+		String accId = null;
+		Account acc =  accs.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);
+		if(acc != null) accId = acc.getId();
+		return accId;
 	}
 	
 	private void createBarChartModel() {
@@ -215,11 +250,20 @@ public class ListOppsBean {
 		return ownerId;
 	}
 
-
-
 	public void setOwnerId(String ownerId) {
 		this.ownerId = ownerId;
 	}
-	
+
+	public List<Account> getAccs() {
+		return accs;
+	}
+
+	public void setAccs(List<Account> accs) {
+		this.accs = accs;
+	}
+
+	public List<String> getStages() {
+		return stages;
+	}
 	
 }

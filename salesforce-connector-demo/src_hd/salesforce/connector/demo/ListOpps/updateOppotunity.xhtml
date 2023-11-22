@@ -7,8 +7,9 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
 <p:dialog id="opportunityUpdate" widgetVar="opportunityUpdateDialog" header="Opportunity"
-				width="800" appendTo="@(body)" modal="true"
-				dynamic="true" resizable="false" styleClass="position-absolute">
+				appendTo="@(body)" modal="true" dynamic="true" resizable="false" styleClass="position-absolute">
+				
+        		
 				<h:form id="opportunityUpdatelForm">
 					<div class="ui-fluid">
 						<h:panelGroup id="confirmDeleteDossierRelativesGroup">
@@ -16,42 +17,20 @@
 								<div class="ui-g-12 ui-md-6 ui-lg-6">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Opportunity Owner" for="oppOwnerView"></p:outputLabel>
+											<p:outputLabel value="Opportunity Owner" for="oppOwnerObj"></p:outputLabel>
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="oppOwnerView"  value="#{data.bean.selectedOpp.ownerId}" disabled="true"></p:inputText>
+											<p:inputText id="oppOwnerObj"  value="#{data.bean.selectedOpp.ownerId}" disabled="true"></p:inputText>
 										</div>
 									</div>
 								</div>
 								<div class="ui-g-12 ui-md-6 ui-lg-6">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Amount" for="amountView"></p:outputLabel>
+											<p:outputLabel value="Amount" for="amountObj"></p:outputLabel>
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="amountView"  value="#{data.bean.selectedOpp.amount}" ></p:inputText>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="ui-g">
-								<div class="ui-g-12 ui-md-6 ui-lg-6">
-									<div class="ui-g">
-										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Private" for="privateView"></p:outputLabel>
-										</div>
-										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:selectBooleanCheckbox id="privateView"  value="#{data.bean.selectedOpp.isPrivate}"></p:selectBooleanCheckbox>
-										</div>
-									</div>
-								</div>
-								<div class="ui-g-12 ui-md-6 ui-lg-6">
-									<div class="ui-g">
-										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Expected Revenue" for="RevenueView"></p:outputLabel>
-										</div>
-										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="RevenueView"  value="#{data.bean.selectedOpp.expectedRevenue}" ></p:inputText>
+											<p:inputText id="amountObj"  value="#{data.bean.selectedOpp.amount}" ></p:inputText>
 										</div>
 									</div>
 								</div>
@@ -60,21 +39,20 @@
 								<div class="ui-g-12 ui-md-6 ui-lg-6">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Opportunity Name" for="oppNameView"></p:outputLabel>
+											<p:outputLabel value="Private" for="privateObj"></p:outputLabel>
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="oppNameView"  value="#{data.bean.selectedOpp.name}" required="true"></p:inputText>
+											<p:selectBooleanCheckbox id="privateObj"  value="#{data.bean.selectedOpp.isPrivate}"></p:selectBooleanCheckbox>
 										</div>
 									</div>
 								</div>
 								<div class="ui-g-12 ui-md-6 ui-lg-6">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Close Date" for="closeDateView"></p:outputLabel>
+											<p:outputLabel value="Expected Revenue" for="RevenueObj"></p:outputLabel>
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="closeDateView"  value="#{data.bean.selectedOpp.closeDate}" required="true">
-											<f:convertDateTime pattern="dd.MM.yyyy" /></p:inputText>
+											<p:inputText id="RevenueObj"  value="#{data.bean.selectedOpp.expectedRevenue}" ></p:inputText>
 										</div>
 									</div>
 								</div>
@@ -83,10 +61,33 @@
 								<div class="ui-g-12 ui-md-6 ui-lg-6">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Account Name" for="accNameView"></p:outputLabel>
+											<p:outputLabel value="Opportunity Name" for="oppNameObj"></p:outputLabel>
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="accNameView"  value="#{data.bean.accountName}"></p:inputText>
+											<p:inputText id="oppNameObj"  value="#{data.bean.selectedOpp.name}" required="true"></p:inputText>
+										</div>
+									</div>
+								</div>
+								<div class="ui-g-12 ui-md-6 ui-lg-6">
+									<div class="ui-g">
+										<div class="ui-g-12 ui-md-4 ui-lg-4">
+											<p:outputLabel value="Close Date" for="closeDateObj"></p:outputLabel>
+										</div>
+										<div class="ui-g-12 ui-md-8 ui-lg-8">
+											<p:datePicker id="closeDateObj" value="#{data.bean.selectedOpp.closeDate}"  pattern="dd.MM.yyyy" required="true"></p:datePicker>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="ui-g">
+								<div class="ui-g-12 ui-md-6 ui-lg-6">
+									<div class="ui-g">
+										<div class="ui-g-12 ui-md-4 ui-lg-4">
+											<p:outputLabel value="Account Name" for="accNameObj"></p:outputLabel>
+										</div>
+										<div class="ui-g-12 ui-md-8 ui-lg-8">
+											 <p:autoComplete id="accNameObj" value="#{data.bean.accountName}" 
+                                				completeMethod="#{data.bean.completeAccount}" scrollHeight="250"/>
 										</div>
 									</div>
 								</div>
@@ -98,20 +99,23 @@
 								<div class="ui-g-12 ui-md-6 ui-lg-6">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Type" for="typeView"></p:outputLabel>
+											<p:outputLabel value="Type" for="typeObj"></p:outputLabel>
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="typeView"  value="#{data.bean.selectedOpp.type}" ></p:inputText>
+											<p:inputText id="typeObj"  value="#{data.bean.selectedOpp.type}" ></p:inputText>
 										</div>
 									</div>
 								</div>
 								<div class="ui-g-12 ui-md-6 ui-lg-6">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Stage" for="stageView"></p:outputLabel>
+											<p:outputLabel value="Stage" for="stageObj"></p:outputLabel>
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="stageView"  value="#{data.bean.selectedOpp.stageName}" required="true"></p:inputText>
+											<p:selectOneMenu id="stageObj" value="#{data.bean.selectedOpp.stageName}" required="true">
+											 	<f:selectItem itemLabel="Select One" itemValue=""/>
+												<f:selectItems value="#{data.bean.stages}"></f:selectItems>
+											</p:selectOneMenu>
 										</div>
 									</div>
 								</div>
@@ -120,20 +124,20 @@
 								<div class="ui-g-12 ui-md-6 ui-lg-6">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Lead Source" for="leadSourceView"></p:outputLabel>
+											<p:outputLabel value="Lead Source" for="leadSourceObj"></p:outputLabel>
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="leadSourceView"  value="#{data.bean.selectedOpp.leadSource}" ></p:inputText>
+											<p:inputText id="leadSourceObj"  value="#{data.bean.selectedOpp.leadSource}" ></p:inputText>
 										</div>
 									</div>
 								</div>
 								<div class="ui-g-12 ui-md-6 ui-lg-6">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-4 ui-lg-4">
-											<p:outputLabel value="Probability (%)" for="probabilityView"></p:outputLabel>
+											<p:outputLabel value="Probability (%)" for="probabilityObj"></p:outputLabel>
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-8">
-											<p:inputText id="probabilityView"  value="#{data.bean.selectedOpp.probability}" ></p:inputText>
+											<p:inputText id="probabilityObj"  value="#{data.bean.selectedOpp.probability}" ></p:inputText>
 										</div>
 									</div>
 								</div>
@@ -142,12 +146,12 @@
 								<div class="ui-g-12 ui-md-12 ui-lg-12">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-12 ui-lg-12">
-											<p:outputLabel value="Description" for="descriptionView"></p:outputLabel>
+											<p:outputLabel value="Description" for="descriptionObj"></p:outputLabel>
 										</div>
 									</div>
 									<div class="ui-g">										
 										<div class="ui-g-12 ui-md-12 ui-lg-12">
-											<p:inputTextarea id="descriptionView"  value="#{data.bean.selectedOpp.description}"></p:inputTextarea>
+											<p:inputTextarea id="descriptionObj"  value="#{data.bean.selectedOpp.description}"></p:inputTextarea>
 										</div>
 									</div>
 								</div>
@@ -156,7 +160,7 @@
 								<div class="ui-g">
 									<div class="ui-g-12 ui-md-6 ui-lg-6" />
 									<div class="ui-g-12 ui-md-3 ui-lg-3">
-										<p:commandButton id="saveOpp" actionListener="#{logic.save}" update="#{p:resolveFirstComponentWithId('form', view).clientId}" oncomplete="PF('opportunityUpdateDialog').hide()"
+										<p:commandButton id="saveOpp" actionListener="#{logic.save}" update="#{p:resolveFirstComponentWithId('form', view).clientId}" oncomplete="if(args &amp;&amp; !args.validationFailed) PF('opportunityUpdateDialog').hide()"
 											value="Save" icon="pi pi-time">
 										</p:commandButton>
 									</div>

@@ -58,7 +58,7 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 280 }
       },
-      "connect" : { "id" : "f8", "to" : "f7" }
+      "connect" : { "id" : "f14", "to" : "f13" }
     }, {
       "id" : "f7",
       "type" : "SubProcessCall",
@@ -75,14 +75,14 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 288, "y" : 280 }
+        "at" : { "x" : 384, "y" : 280 }
       },
       "connect" : { "id" : "f12", "to" : "f11" }
     }, {
       "id" : "f9",
       "type" : "HtmlDialogEnd",
       "visual" : {
-        "at" : { "x" : 576, "y" : 280 }
+        "at" : { "x" : 672, "y" : 280 }
       }
     }, {
       "id" : "f11",
@@ -103,8 +103,21 @@
         }
       },
       "visual" : {
-        "at" : { "x" : 448, "y" : 280 }
+        "at" : { "x" : 544, "y" : 280 }
       },
       "connect" : { "id" : "f10", "to" : "f9" }
+    }, {
+      "id" : "f13",
+      "type" : "Script",
+      "name" : "set Account to Oppotunity",
+      "config" : {
+        "output" : {
+          "code" : "in.bean.selectedOpp.accountId = in.bean.getAccountIdByName(in.bean.accountName);"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 280 }
+      },
+      "connect" : { "id" : "f8", "to" : "f7" }
     } ]
 }

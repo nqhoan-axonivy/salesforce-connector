@@ -44,6 +44,14 @@ public class ConvertUtils {
 		return acc;
 	}
 	
+	public static List<Account> convertToListAccounts(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
+		ObjectMapper mapper = new ObjectMapper();	
+		JsonNode node = jsonNode.findValue("records");
+		
+		List<Account> accounts = mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Account>>(){});
+		return accounts;
+	}
+	
 	public static <T extends Object> T getObject(Class cls, T object) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		return (T) cls.getDeclaredConstructor().newInstance(); 
 	}
