@@ -113,6 +113,25 @@ public class ListOppsBean {
 		}
 	}
 	
+	public void beforeDelete(String id) {
+		selectedOpp = SubProcessCall.withPath("Functional Processes/getOpportunity")
+				.withStartSignature("getOpportunity(String)")
+				.withParam("id", id)
+				.call()
+				.get("opp", Opportunity.class);
+	}
+	
+	public void updateCurrentListAfterDelete() {
+		OptionalInt result = IntStream.range(0, opps.size())
+                .filter(x -> selectedOpp.getId().equals(opps.get(x).getId()))
+                .findFirst();
+		if (result.isPresent())
+		{
+		   int index = result.getAsInt();
+		   opps.remove(index);
+		}
+	}
+	
 	private void getListStages() {
 		stages = Arrays.stream(Stage
 				.values())

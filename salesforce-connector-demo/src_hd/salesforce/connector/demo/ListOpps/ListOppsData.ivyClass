@@ -2,3 +2,5 @@ ListOppsData #class
 salesforce.connector.demo.ListOpps #namespace
 bean salesforce.connector.demo.ListOppsBean #field
 bean PERSISTENT #fieldModifier
+id String #field
+id PERSISTENT #fieldModifier

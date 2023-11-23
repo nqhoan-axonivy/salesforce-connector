@@ -33,7 +33,7 @@
     }, {
       "id" : "f3",
       "type" : "RestClientCall",
-      "name" : "Delete oppotunity",
+      "name" : "Delete opportunity",
       "config" : {
         "path" : "/sobjects/Opportunity/{id}",
         "clientId" : "a8bd1ef0-7283-4211-9672-3231654ad15f",
@@ -45,7 +45,7 @@
           "id" : "in.id"
         },
         "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "responseCode" : "ivy.log.info(\"response: \" + response.getStatus());"
+        "responseCode" : "ivy.log.info(\"delete response: \" + response.getStatus());"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 }

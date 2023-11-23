@@ -41,7 +41,7 @@
     }, {
       "id" : "f3",
       "type" : "RestClientCall",
-      "name" : "Get Oppotunity",
+      "name" : "Get Opportunity",
       "config" : {
         "path" : "/sobjects/Opportunity/{id}",
         "clientId" : "a8bd1ef0-7283-4211-9672-3231654ad15f",
