@@ -221,11 +221,11 @@ public class ListOppsBean {
 
         Title title = new Title();
         title.setDisplay(true);
-        title.setText("Bar Chart");
+        title.setText("Opportunity");
         options.setTitle(title);
 
         Legend legend = new Legend();
-        legend.setDisplay(true);
+        legend.setDisplay(false);
         legend.setPosition("top");
         LegendLabel legendLabels = new LegendLabel();
         legendLabels.setFontStyle("italic");
