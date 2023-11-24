@@ -33,7 +33,7 @@
     }, {
       "id" : "f2",
       "type" : "SubProcessCall",
-      "name" : "ListOppService",
+      "name" : "QueryService",
       "config" : {
         "call" : {
           "params" : [
@@ -41,12 +41,12 @@
           ],
           "code" : "param.query = ivy.html.escape(\"Select FIELDS(ALL) from Opportunity LIMIT 200\");"
         },
-        "processCall" : "ListOppService:call(String)",
+        "processCall" : "QueryService:call(String)",
         "output" : {
-          "map" : {
-            "out" : "in",
-            "out.opps" : "result.opps"
-          }
+          "code" : [
+            "import com.axonivy.connector.salesforce.utils.ConvertUtils;",
+            "out.opps = ConvertUtils.convertToListOpportunity(result.jsonNode);"
+          ]
         }
       },
       "visual" : {

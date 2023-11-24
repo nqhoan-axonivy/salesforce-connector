@@ -21,13 +21,6 @@ import com.fasterxml.jackson.databind.util.BeanUtil;
 import ch.ivyteam.ivy.process.call.SubProcessCall;
 
 public class ConvertUtils {
-//	public static List<Pet> convertStringToList(String jonStr) throws JsonMappingException, JsonProcessingException {
-//		ObjectMapper mapper = new ObjectMapper();
-//		List<Pet> pets = mapper.readValue(jonStr, new TypeReference<List<Pet>>(){});
-//		Ivy.log().info("-----------------convert ne: " + pets.size());
-//		
-//		return pets;		
-//	}
 	
 	public static Opportunity convertToOpportunity(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
 		ObjectMapper mapper = new ObjectMapper();

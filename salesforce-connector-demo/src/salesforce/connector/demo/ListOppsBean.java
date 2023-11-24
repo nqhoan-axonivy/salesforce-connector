@@ -8,8 +8,6 @@ import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import javax.faces.event.AjaxBehaviorEvent;
-
 import org.primefaces.model.charts.ChartData;
 import org.primefaces.model.charts.axes.cartesian.CartesianScales;
 import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearAxes;
@@ -38,7 +36,6 @@ public class ListOppsBean {
 	private Opportunity selectedOpp;
 	private String accountName;
 	private BarChartModel barModel;
-	private int renderView; // 1: add new, 2: edit
 	String ownerId;
 	List<Account> accs;
 	List<String> stages;
@@ -48,7 +45,7 @@ public class ListOppsBean {
 		ownerId= "0055h000009a4XMAAY";
 		opps = new ArrayList<>();
 		getAllOpps();
-		Ivy.log().info("list ne: " + opportunities.size());
+		Ivy.log().info("list opportunities: " + opportunities.size());
 		
 		opps = Utils.convertToOppDTO(opportunities);
 		
@@ -81,7 +78,6 @@ public class ListOppsBean {
 	}
 	
 	public void addNewOppotunity() {
-		renderView = 1;
 		accountName = null;
 		selectedOpp = new Opportunity();
 		selectedOpp.setOwnerId(ownerId);
@@ -91,7 +87,6 @@ public class ListOppsBean {
 	
 	public void updateOppotunity(String id) {
 		updateDTO = new OpportunityUpdateDTO();
-		renderView = 2;
 		openOpportunityDetail(id);
 		getAllAccounts();
 		getListStages();
@@ -289,14 +284,6 @@ public class ListOppsBean {
 
 	public void setBarModel(BarChartModel barModel) {
 		this.barModel = barModel;
-	}
-
-	public int getRenderView() {
-		return renderView;
-	}
-
-	public void setRenderView(int renderView) {
-		this.renderView = renderView;
 	}
 
 	public String getOwnerId() {
