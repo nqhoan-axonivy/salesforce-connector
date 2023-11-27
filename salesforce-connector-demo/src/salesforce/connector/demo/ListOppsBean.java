@@ -106,6 +106,7 @@ public class ListOppsBean {
 		   int index = result.getAsInt();
 		   opps.set(index, Utils.convertToOppDTO(selectedOpp, updateDTO));
 		}
+		createBarChartModel();
 	}
 	
 	public void beforeDelete(String id) {
@@ -125,6 +126,7 @@ public class ListOppsBean {
 		   int index = result.getAsInt();
 		   opps.remove(index);
 		}
+		createBarChartModel();
 	}
 	
 	private void getListStages() {
@@ -157,7 +159,7 @@ public class ListOppsBean {
 		accountName = null;
 	}
 	
-	private void createBarChartModel() {
+	public void createBarChartModel() {
 		barModel = new BarChartModel();
         ChartData data = new ChartData();
 
