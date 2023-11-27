@@ -11,4 +11,3 @@ RestClients:
       AUTH.appId: ${ivy.var.salesforce-connector.auth.clientId}
       AUTH.secretKey: ${ivy.var.salesforce-connector.auth.clientSecret}
       AUTH.useAppPermissions: ${ivy.var.salesforce-connector.auth.useAppPermissions}
-      AUTH.scope: ${ivy.var.salesforce-connector.auth.permissions}
