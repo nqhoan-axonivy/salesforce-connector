@@ -187,8 +187,23 @@
 								<p:tab title="#{task.subject}">
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-6 ui-lg-6">
+											<div class="slds-form-element_readonly">
+												Assigned To: #{data.bean.getAccountName(task.accountId)} 
+											</div>
+											<div class="slds-form-element_readonly">
+												Subject: #{task.subject}
+											</div>
+											<div class="slds-form-element_readonly">
+											Due Date:
+												<h:outputText value="#{task.completedDateTime}">
+													<f:convertDateTime pattern="dd.MM.yyyy" />
+												</h:outputText>
+											</div>	
 										</div>
 										<div class="ui-g-12 ui-md-6 ui-lg-6">
+											<div class="slds-form-element_readonly">
+												Status: #{task.status}
+											</div>											
 										</div>
 									</div>										
 								</p:tab>
@@ -204,6 +219,11 @@
 			</p:tabView>
 		</div>
 	</h:form>
-	
+	<style>
+		.slds-form-element_readonly{
+			padding: 12px;
+			border-bottom: 0.1px solid #ebe6e6;
+		}
+	</style>
 </p:dialog>
 </html>
