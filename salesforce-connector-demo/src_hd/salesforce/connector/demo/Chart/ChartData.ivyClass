@@ -1,0 +1,4 @@
+ChartData #class
+salesforce.connector.demo.Chart #namespace
+bean salesforce.connector.demo.ChartBean #field
+bean PERSISTENT #fieldModifier

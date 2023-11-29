@@ -15,7 +15,6 @@
 					<div class="ui-g">
 						<div class="ui-g-12 ui-md-12 ui-lg-12">
 					        <div class="card">
-					            <p:barChart model="#{data.bean.barModel}" style="width: 100%; height: 400px;"/>
 					        </div>
 					    </div>
 					</div>
@@ -36,7 +35,17 @@
 								paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 								currentPageReportTemplate="({currentPage} of {totalPages})"
 								rowsPerPageTemplate="5,10,20" paginatorPosition="bottom"
-								emptyMessage="No records found">
+								emptyMessage="No records found"
+								filteredValue="#{data.bean.filterOpps}"
+                     			globalFilterFunction="#{data.bean.globalFilterFunction}">
+
+
+								<f:facet name="header">
+					                <div class="flex justify-content-end">
+					                    <p:inputText id="globalFilter" onkeyup="PF('oppDataTable').filter()" style="width:300px"
+					                                 placeholder="Enter search here" />
+					                </div>
+					            </f:facet>
 
 								<p:column
 									headerText="#{ivy.cms.co('/Dialogs/listOpps/oppName')}"
@@ -71,13 +80,16 @@
 									<h:outputText value="#{opp.stage}" />
 								</p:column>
 								<p:column id="actionColumn" toggleable="false" headerText="#{ivy.cms.co('/Dialogs/listOpps/action')}" width="60px;" exportable="false" selectRow="false">
-									<p:commandLink id="edit" actionListener="#{data.bean.updateOppotunity(opp.id)}" oncomplete="PF('opportunityUpdateDialog').show()" update="#{p:resolveFirstComponentWithId('opportunityUpdatelForm', view).clientId}">
-										<i class="fa fa-pencil" />
+									<p:commandLink id="edit" actionListener="#{data.bean.updateOppotunity(opp.id)}" oncomplete="PF('opportunityUpdateDialog').show()" update="#{p:resolveFirstComponentWithId('opportunityUpdatelForm', view).clientId}" title="Edit">
+										<i class="fa fa-pencil margin4" />
 									</p:commandLink>
-									<p:commandLink  id="delete" actionListener="#{logic.delete(opp.id)}" update="form" styleClass="textDecorationNone">
+									<p:commandLink  id="delete" actionListener="#{logic.delete(opp.id)}" update="form" styleClass="textDecorationNone" title="Delete">
 										<i class="fa fa-trash margin4" />
 										<p:confirm header="Confirmation" message="Do you want to delete this record?" icon="pi pi-info-circle"/>
 									</p:commandLink>
+									<!-- <p:commandLink  id="newActivity" update="form" styleClass="textDecorationNone" title="New Activity">
+										<i class="fa fa-add margin4" />
+									</p:commandLink> -->
 								</p:column>
 							</p:dataTable>
 						</div>
@@ -103,19 +115,31 @@
 				.textDecorationNone {
 					text-decoration: none !important;
 				}
+				
 				.margin4 {
-				   margin: 4px;	
+					margin: 4px;
 				}
+				
 				.position-absolute {
 					position: absolute;
 				}
-				.width100percent{
+				
+				.width100percent {
 					width: 100%;
 				}
-				.right{
+				
+				.right {
 					float: right;
 				}
-			</style>
+				
+				.justify-content-end {
+					justify-content: flex-end !important;
+				}
+				
+				.flex {
+					display: flex !important;
+				}
+				</style>
 		</ui:define>
 	</ui:composition>
 </h:body>

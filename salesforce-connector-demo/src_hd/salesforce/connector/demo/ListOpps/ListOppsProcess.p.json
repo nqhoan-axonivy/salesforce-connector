@@ -112,8 +112,7 @@
             "in.bean.opportunities.add(0,in.bean.selectedOpp);",
             "in.bean.opps.add(0,utils.convertToOppDTO(in.bean.selectedOpp));",
             "",
-            "in.bean.reset();",
-            "in.bean.createBarChartModel();"
+            "in.bean.reset();"
           ]
         }
       },

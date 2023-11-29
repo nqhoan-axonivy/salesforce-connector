@@ -1,0 +1,4 @@
+findAllTaskByOpportunityIdData #class
+salesforce.connector.demo #namespace
+tasks java.util.List<com.axonivy.connector.salesforce.model.Task> #field
+oppId String #field

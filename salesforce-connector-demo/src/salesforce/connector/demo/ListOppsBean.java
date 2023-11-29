@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -19,6 +20,7 @@ import org.primefaces.model.charts.optionconfig.animation.Animation;
 import org.primefaces.model.charts.optionconfig.legend.Legend;
 import org.primefaces.model.charts.optionconfig.legend.LegendLabel;
 import org.primefaces.model.charts.optionconfig.title.Title;
+import org.primefaces.util.LangUtils;
 
 import com.axonivy.connector.salesforce.model.Account;
 import com.axonivy.connector.salesforce.model.Opportunity;
@@ -27,19 +29,22 @@ import com.axonivy.connector.salesforce.utils.ConvertUtils;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.process.call.SubProcessCall;
+import salesforce.connector.demo.dto.ActivityDTO;
 import salesforce.connector.demo.dto.OpportunityDTO;
 import salesforce.connector.demo.enums.Stage;
 
 public class ListOppsBean {
-	List<Opportunity> opportunities;
-	List<OpportunityDTO> opps;
+	private List<Opportunity> opportunities;
+	private List<OpportunityDTO> opps;
+	private List<OpportunityDTO> filterOpps;
 	private Opportunity selectedOpp;
 	private String accountName;
 	private BarChartModel barModel;
-	String ownerId;
-	List<Account> accs;
-	List<String> stages;
+	private String ownerId;
+	private List<Account> accs;
+	private List<String> stages;
 	private OpportunityUpdateDTO updateDTO;
+	private ActivityDTO activityDTO;
 	
 	public ListOppsBean() {
 		ownerId= "0055h000009a4XMAAY";
@@ -49,7 +54,6 @@ public class ListOppsBean {
 		
 		opps = Utils.convertToOppDTO(opportunities);
 		
-		createBarChartModel();
 	}
 	
 	public void openOpportunityDetail(String id) {
@@ -59,14 +63,17 @@ public class ListOppsBean {
 				.call()
 				.get("opp", Opportunity.class);
 		accountName = Utils.getAccName(selectedOpp.getAccountId());
+		getActivities();
 	}
 	
-	@SuppressWarnings("unchecked")
+	private void getActivities() {
+		activityDTO = new ActivityDTO();
+		activityDTO.setTasks(Utils.getAllTasks(selectedOpp.getId()));
+		activityDTO.setEvents(Utils.getAllEvents(selectedOpp.getId()));		
+	}
+
 	public void getAllOpps() {
-		opportunities = (List<Opportunity>) SubProcessCall.withPath("Functional Processes/getAllOpps")
-				.withStartSignature("getAllOpps()")
-		         .call()
-		         .get("opps", Opportunity.class);
+		opportunities = Utils.getAllOpps();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -106,7 +113,6 @@ public class ListOppsBean {
 		   int index = result.getAsInt();
 		   opps.set(index, Utils.convertToOppDTO(selectedOpp, updateDTO));
 		}
-		createBarChartModel();
 	}
 	
 	public void beforeDelete(String id) {
@@ -126,7 +132,6 @@ public class ListOppsBean {
 		   int index = result.getAsInt();
 		   opps.remove(index);
 		}
-		createBarChartModel();
 	}
 	
 	private void getListStages() {
@@ -159,93 +164,22 @@ public class ListOppsBean {
 		accountName = null;
 	}
 	
-	public void createBarChartModel() {
-		barModel = new BarChartModel();
-        ChartData data = new ChartData();
+	public boolean globalFilterFunction(Object value, Object filter, Locale locale) {
+        String filterText = (filter == null) ? null : filter.toString().trim().toLowerCase();
+        if (LangUtils.isBlank(filterText)) {
+            return true;
+        }
 
-        BarChartDataSet dataSet = new BarChartDataSet();
-        dataSet.setLabel("Oppotunities");
-
-        List<Number> values = new ArrayList<>();
-        values.add(countByStage(Stage.PROSPECTING.label));
-        values.add(countByStage(Stage.QUALIFICATION.label));
-        values.add(countByStage(Stage.NEEDS_ANALYSIS.label));
-        values.add(countByStage(Stage.VALUE_PROPOSITION.label));
-        values.add(countByStage(Stage.DECISION_MAKERS.label));
-        values.add(countByStage(Stage.PERCEPTION_ANALYSIS.label));
-        values.add(countByStage(Stage.PROPOSAL_PRICE_QUOTE.label));
-        values.add(countByStage(Stage.NEGOTIATION_REVIEW.label));
-        values.add(countByStage(Stage.CLOSED_WON.label));
-        values.add(countByStage(Stage.CLOSED_LOST.label));
-        dataSet.setData(values);
-
-        List<String> bgColors = new ArrayList<>();
-        bgColors.add("rgb(255, 99, 132)");
-        bgColors.add("rgb(75, 192, 192)");
-        bgColors.add("rgb(255, 205, 86)");
-        bgColors.add("rgb(201, 203, 207)");
-        bgColors.add("rgb(54, 162, 235)");
-        
-        bgColors.add("rgb(153, 102, 255)");
-        bgColors.add("rgb(153, 102, 51)");
-        bgColors.add("rgb(255, 51, 204)");
-        bgColors.add("rgb(204, 153, 0)");
-        bgColors.add("rgb(51, 153, 51)");
-        dataSet.setBackgroundColor(bgColors);
-
-        data.addChartDataSet(dataSet);
-        List<String> labels = new ArrayList<>();
-        labels.add(Stage.PROSPECTING.label);
-        labels.add(Stage.QUALIFICATION.label);
-        labels.add(Stage.NEEDS_ANALYSIS.label);
-        labels.add(Stage.VALUE_PROPOSITION.label);
-        labels.add(Stage.DECISION_MAKERS.label);
-        labels.add(Stage.PERCEPTION_ANALYSIS.label);
-        labels.add(Stage.PROPOSAL_PRICE_QUOTE.label);
-        labels.add(Stage.NEGOTIATION_REVIEW.label);
-        labels.add(Stage.CLOSED_WON.label);
-        labels.add(Stage.CLOSED_LOST.label);
-        data.setLabels(labels);
-
-        barModel.setData(data);
-        
-      //Options
-        BarChartOptions options = new BarChartOptions();
-//        options.setMaintainAspectRatio(false);
-        CartesianScales cScales = new CartesianScales();
-        CartesianLinearAxes linearAxes = new CartesianLinearAxes();
-        linearAxes.setOffset(true);
-//        linearAxes.setBeginAtZero(true);
-        CartesianLinearTicks ticks = new CartesianLinearTicks();
-        linearAxes.setTicks(ticks);
-        cScales.addYAxesData(linearAxes);
-        options.setScales(cScales);
-
-        Title title = new Title();
-        title.setDisplay(true);
-        title.setText("Opportunity");
-        options.setTitle(title);
-
-        Legend legend = new Legend();
-        legend.setDisplay(false);
-        legend.setPosition("top");
-        LegendLabel legendLabels = new LegendLabel();
-        legendLabels.setFontStyle("italic");
-        legendLabels.setFontColor("#2980B9");
-        legendLabels.setFontSize(24);
-        legend.setLabels(legendLabels);
-        options.setLegend(legend);
-
-        // disable animation
-        Animation animation = new Animation();
-        animation.setDuration(0);
-        options.setAnimation(animation);
-
-        barModel.setOptions(options);
+        OpportunityDTO opp = (OpportunityDTO) value;
+        return opp.getOppName().toLowerCase().contains(filterText)
+                || opp.getAccName().toLowerCase().contains(filterText)
+                || opp.getStage().toLowerCase().contains(filterText)
+                || opp.getCloseDate().toString().toLowerCase().contains(filterText)
+                ;
     }
 	
-	private int countByStage(String stageName) {
-		return opps.stream().filter(o -> o.getStage().equals(stageName)).collect(Collectors.toList()).size();
+	public String getAccountName(String id) {
+		return Utils.getAccName(id);
 	}
 
 	public List<Opportunity> getOpportunities() {
@@ -314,6 +248,22 @@ public class ListOppsBean {
 
 	public void setUpdateDTO(OpportunityUpdateDTO updateDTO) {
 		this.updateDTO = updateDTO;
+	}
+
+	public List<OpportunityDTO> getFilterOpps() {
+		return filterOpps;
+	}
+
+	public void setFilterOpps(List<OpportunityDTO> filterOpps) {
+		this.filterOpps = filterOpps;
+	}
+
+	public ActivityDTO getActivityDTO() {
+		return activityDTO;
+	}
+
+	public void setActivityDTO(ActivityDTO activityDTO) {
+		this.activityDTO = activityDTO;
 	}
 	
 }

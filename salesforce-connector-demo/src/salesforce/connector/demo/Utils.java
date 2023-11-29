@@ -1,11 +1,14 @@
 package salesforce.connector.demo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.axonivy.connector.salesforce.model.Account;
+import com.axonivy.connector.salesforce.model.Event;
 import com.axonivy.connector.salesforce.model.Opportunity;
 import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;
+import com.axonivy.connector.salesforce.model.Task;
 
 import ch.ivyteam.ivy.process.call.SubProcessCall;
 import salesforce.connector.demo.dto.OpportunityDTO;
@@ -18,6 +21,40 @@ public class Utils {
 		         .call()
 		         .get("acc", Account.class);
 		return acc.getName();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static List<Opportunity> getAllOpps() {
+		List<Opportunity> opportunities = new ArrayList<>();
+		opportunities = (List<Opportunity>) SubProcessCall.withPath("Functional Processes/getAllOpps")
+				.withStartSignature("getAllOpps()")
+		         .call()
+		         .get("opps", Opportunity.class);
+		
+		return opportunities;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static List<Task> getAllTasks(String oppId) {
+		List<Task> tasks = new ArrayList<>();
+		tasks = (List<Task>) SubProcessCall.withPath("Functional Processes/findAllTaskByOpportunityId")
+				.withStartSignature("findTask(String)")
+				.withParam("oppId", oppId)
+		         .call()
+		         .get("tasks", Task.class);		
+		return tasks;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static List<Event> getAllEvents(String oppId) {
+		List<Event> events = new ArrayList<>();
+		events = (List<Event>) SubProcessCall.withPath("Functional Processes/findAllEventByOpportunityId")
+				.withStartSignature("findEvent(String)")
+				.withParam("oppId", oppId)
+		         .call()
+		         .get("events", Event.class);
+		
+		return events;
 	}
 	
 	public static List<OpportunityDTO> convertToOppDTO(List<Opportunity> list) {
