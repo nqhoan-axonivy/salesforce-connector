@@ -64,6 +64,9 @@ public class Task implements Serializable {
 	@JsonProperty("IsRecurrence")
 	private Boolean isRecurrence;
 	
+	@JsonProperty("Name")
+    private String name;
+	
 
 	public String getId() {
 		return id;
@@ -223,6 +226,14 @@ public class Task implements Serializable {
 
 	public void setIsRecurrence(Boolean isRecurrence) {
 		this.isRecurrence = isRecurrence;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

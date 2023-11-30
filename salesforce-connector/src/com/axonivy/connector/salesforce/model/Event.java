@@ -84,6 +84,9 @@ public class Event implements Serializable {
 	
 	@JsonProperty("IsRecurrence2Exception")
     private Boolean isRecurrence2Exception;
+	
+	@JsonProperty("Name")
+    private String name;
 
 	public String getId() {
 		return id;
@@ -275,6 +278,14 @@ public class Event implements Serializable {
 
 	public void setIsRecurrence2Exception(Boolean isRecurrence2Exception) {
 		this.isRecurrence2Exception = isRecurrence2Exception;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }
