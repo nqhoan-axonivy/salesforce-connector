@@ -15,24 +15,33 @@
       "visual" : {
         "at" : { "x" : 96, "y" : 64 }
       },
-      "connect" : { "id" : "f4", "to" : "f3" }
+      "connect" : { "id" : "f3", "to" : "f2" }
     }, {
       "id" : "f1",
       "type" : "TaskEnd",
       "visual" : {
-        "at" : { "x" : 352, "y" : 64 }
+        "at" : { "x" : 472, "y" : 64 }
       }
     }, {
-      "id" : "f3",
-      "type" : "DialogCall",
-      "name" : "Chart",
+      "id" : "f2",
+      "type" : "UserTask",
+      "name" : "Chart Demo",
       "config" : {
         "dialogId" : "salesforce.connector.demo.Chart",
-        "startMethod" : "start()"
+        "startMethod" : "start()",
+        "case" : {
+          "name" : "Chart Demo",
+          "description" : "Chart Demo"
+        },
+        "task" : {
+          "name" : "Chart Demo",
+          "description" : "Chart Demo",
+          "skipTasklist" : true
+        }
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 }
+        "at" : { "x" : 288, "y" : 64 }
       },
-      "connect" : { "id" : "f2", "to" : "f1" }
+      "connect" : { "id" : "f4", "to" : "f1" }
     } ]
 }

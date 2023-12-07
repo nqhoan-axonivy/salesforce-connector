@@ -61,9 +61,6 @@ public class OpportunityUpdateDTO implements Serializable {
     @JsonProperty("OwnerId")
     private String ownerId;
     
-    @JsonProperty("LastActivityDate")
-    private Date lastActivityDate;
-    
     @JsonProperty("ContactId")
     private String contactId;
     
@@ -208,14 +205,6 @@ public class OpportunityUpdateDTO implements Serializable {
 
 	public void setOwnerId(String ownerId) {
 		this.ownerId = ownerId;
-	}
-
-	public Date getLastActivityDate() {
-		return lastActivityDate;
-	}
-
-	public void setLastActivityDate(Date lastActivityDate) {
-		this.lastActivityDate = lastActivityDate;
 	}
 
 	public String getContactId() {

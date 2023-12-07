@@ -4,19 +4,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axonivy.salesforce.connector.demo</groupId>
   <artifactId>salesforce-connector-demo</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>iar</packaging>
   <dependencies>
     <dependency>
       <groupId>com.axonivy.connector.salesforce</groupId>
       <artifactId>salesforce-connector</artifactId>
       <version>${project.version}</version>
-      <type>iar</type>
-    </dependency>
-    <dependency>
-      <groupId>com.axonivy.portal</groupId>
-      <artifactId>portal</artifactId>
-      <version>10.0.12</version>
       <type>iar</type>
     </dependency>
   </dependencies>
