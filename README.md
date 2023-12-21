@@ -44,10 +44,24 @@ After calling the SF API, We can show a List of all Opportunities and we can man
     
 # How to use
 
-  1. The connector app has defined the Rest Client called **SalesforceAPI**:
+  1. The connector app has defined the Rest Client called **SalesforceAPI**
      
   3. The connector app has created CRUD sub process call for Opportunity Object: AddOppService, GetOppService, UpdateOppService, DeleteOppService.
      
   5. For Query, the connector has defined a Service called **QueryService**. Just simply pass the query command to get the list of data responses.
      
      > **Note:** The Salesforce provides SOQL to query all the SF objects
+
+# Demo
+
+1. Query Service:
+
+![plot](/salesforce-connector-demo/recources/demo1.png)
+
+2. Chart bar:
+
+![plot](/salesforce-connector-demo/recources/demo2.png)
+
+3. List all Opportunities:
+
+![plot](/salesforce-connector-demo/recources/demo3.png)
