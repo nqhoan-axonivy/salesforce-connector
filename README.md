@@ -21,7 +21,7 @@ After calling the SF API, We can show a List of all Opportunities and we can man
   
     To implement this authorization, use a connected app and an OAuth 2.0 authorization flow.
 
-    **Important steps**:
+    Important steps:
       - Create the Connected App that can generate the Authentication information
       - Set up Auth. Providers
       - Enable some settings in OAuth and OpenID Connect Settings
@@ -29,8 +29,8 @@ After calling the SF API, We can show a List of all Opportunities and we can man
 
 
   ## Configure in the Connector project:
-    We will get the **Consumer Key** and **Consumer Secret** from the **Connected App** and store them in the variables.yaml
+  We will get the **Consumer Key** and **Consumer Secret** from the **Connected App** and store them in the variables.yaml
 
-    Now Authenticate's information becomes a global variable and we can change or update it anytime.
+  Now Authenticate's information becomes a global variable and we can change or update it anytime.
 
     
