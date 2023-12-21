@@ -19,7 +19,7 @@ After calling the SF API, We can show a List of all Opportunities and we can man
   ## Configure on the SF Application
   For a client application to access REST API resources, it must be authorized as a safe visitor.
   
-  To implement this authorization, use a connected app and an OAuth 2.0 authorization flow.
+  To implement this authorization, use a **Connected App** and an **OAuth 2.0** authorization flow.
 
   **Important steps**:
   
@@ -34,4 +34,11 @@ After calling the SF API, We can show a List of all Opportunities and we can man
 
   Now Authenticate's information becomes a global variable and we can change or update it anytime.
 
+  
+  | Variable name                              | Note                                          |Example                                                                               |
+  |--------------------------------------------|-----------------------------------------------|--------------------------------------------------------------------------------------|
+  |salesforce-connector.auth.subdomain         |The domain that SF provide to consumer         |axonactive3-dev-ed.develop                                                            |
+  |salesforce-connector.auth.clientId          |Consumer Id                                    |3MVG95mg0lk4bathQF4Z_F1GcZZPr8ztvo29c53HhwOXnCKBkP8LkxHnb5KlydXj3Oomw0VHsY3qdrM8lzU76 |
+  |salesforce-connector.auth.clientSecret      |Consumer Secret                                |56C6CA448B49032828FE4C4DF16D1AF4804B8CC734E066B255A5B31A9895D9D8                      |
+  |salesforce-connector.auth.useAppPermissions |OAuth2 Grantype                                |true (client_credentials)                                                             |
     
