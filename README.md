@@ -16,6 +16,7 @@ After calling the SF API, We can show a List of all Opportunities and we can man
 
 # How to Configure
 
+
   ## Configure on the SF Application
   For a client application to access REST API resources, it must be authorized as a safe visitor.
   
@@ -41,7 +42,8 @@ After calling the SF API, We can show a List of all Opportunities and we can man
   |salesforce-connector.auth.clientId          |Consumer Id                                    |3MVG95mg0lk4bathQF4Z_F1GcZZPr8ztvo29c53HhwOXnCKBkP8LkxHnb5KlydXj3Oomw0VHsY3qdrM8lzU76 |
   |salesforce-connector.auth.clientSecret      |Consumer Secret                                |56C6CA448B49032828FE4C4DF16D1AF4804B8CC734E066B255A5B31A9895D9D8                      |
   |salesforce-connector.auth.useAppPermissions |OAuth2 Grantype                                |true (client_credentials)                                                             |
-    
+
+
 # How to use
 
   1. The connector app has defined the Rest Client called **SalesforceAPI**
@@ -51,6 +53,7 @@ After calling the SF API, We can show a List of all Opportunities and we can man
   5. For Query, the connector has defined a Service called **QueryService**. Just simply pass the query command to get the list of data responses.
      
      > **Note:** The Salesforce provides SOQL to query all the SF objects. [Salesforce SOQL](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm)
+
 
 # Demo
 
