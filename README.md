@@ -72,7 +72,9 @@ After calling the SF API, We can show a List of all Opportunities and we can man
 
 # Resource:
 [https://developer.salesforce.com/docs](https://developer.salesforce.com/docs)
+
 [Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)
+
 [Salesforce SOQL](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm)
 
 
