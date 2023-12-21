@@ -16,3 +16,21 @@ After calling the SF API, We can show a List of all Opportunities and we can man
 
 # How to use
 
+  ## Configure on the SF Application
+    For a client application to access REST API resources, it must be authorized as a safe visitor.
+  
+    To implement this authorization, use a connected app and an OAuth 2.0 authorization flow.
+
+    **Important steps**:
+      - Create the Connected App that can generate the Authentication information
+      - Set up Auth. Providers
+      - Enable some settings in OAuth and OpenID Connect Settings
+      - Set up Named Credentials
+
+
+  ## Configure in the Connector project:
+    We will get the **Consumer Key** and **Consumer Secret** from the **Connected App** and store them in the variables.yaml
+
+    Now Authenticate's information becomes a global variable and we can change or update it anytime.
+
+    
