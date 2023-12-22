@@ -11,29 +11,27 @@ main Business Project that will make use of this product:
 @variables.yaml@ 
 ```
 
-Afterwards set the values as shown in the Azure App setup below.
+Afterwards set the Consumer key, Consumer Secret, and App domain as shown in the Salesforce App setup below.
+
+Example App domain: axonactive3-dev-ed.develop
 
 
-### Azure App
+### Salesforce App
 
-1. Register an application on Azure as described in the Microsoft's Java Tutorial https://docs.microsoft.com/en-us/graph/tutorials/java?tutorial-step=2
-1. Navigate to `Overview` in the menu and copy the 'Application (client) ID' into your variable called `appId` within the `microsoft-connector` section.
-1. Navigate to `Authentication` in the Azure App menu.
-	1. Add a `Redirect URI` in the `Web` Section.
-		- Axon Ivy has an authentication callback URI which follows the pattern `{scheme}://{host}:{port}/oauth2/callback`. This URI must be registered in the Azure App.
-		- Consequently, for the Axon Ivy Designer this URI can always be set to the following value: `http://localhost:8081/oauth2/callback`
-		- For the Axon Ivy Engine, the URI must contain the full URI where your Engine is reachable plus the callback path. E.g.: `https://my.workflows.ch/oauth2/callback`
- ![set-redirect](doc/img/azure_authCallback.png)
+1. Create the Connected App so that can generate the Authentication information
 
-1. Navigate to `Certificate & secrets` in the Azure App menu.
-  1. Create a new secret by pressing `New client secret`. And select any validity period.
-  ![new-secret](doc/img/azure_createSecret.png)
-  1. copy the value of the generated secret into your variable called `secretKey` within the `microsoft-connector` section.
-  ![copy-secret](doc/img/azure_copySecret.png)
+![plot](/salesforce-connector-product/doc/img/sf-connected-app-01.png)
 
-1. Navigate to `API Permissions` in the Azure App menu.
-Add permissions via `Add a permission` > `Microsoft Graph` > `Delegated permissions`.
-Grant each of the permissions outlined in the `permissions` block of your variables.yaml file.
-    ![add-perms](doc/img/azure_addPermission.png)
+![plot](/salesforce-connector-product/doc/img/sf-connected-app-02.png)
 
-1. Done. Start any process that connects with Microsoft 365.
+2. Set up Auth. Providers
+
+![plot](/salesforce-connector-product/doc/img/sf-oauth-providers.png)
+
+3. Enable some settings for OAuth2.0
+
+![plot](/salesforce-connector-product/doc/img/sf-oauth-settings.png)
+
+3. Set up Named Credentials
+
+![plot](/salesforce-connector-product/doc/img/sf-name-credentials.png)
