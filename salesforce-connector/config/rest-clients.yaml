@@ -2,6 +2,7 @@ RestClients:
   SalesforceAPI:
     UUID: a8bd1ef0-7283-4211-9672-3231654ad15f
     Url: https://{subdomain}.my.salesforce.com/services/data/v58.0
+    Icon: res:/webContent/icons/Salesforce-logo.jpg
     Features:
     - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
     - com.axonivy.connector.salesforce.auth.OAuth2Feature
