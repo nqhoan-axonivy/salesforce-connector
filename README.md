@@ -71,7 +71,19 @@ After calling the SF API, We can show a List of all Opportunities and we can man
 
 4. Add new Opportunity:
 
-![plot](/salesforce-connector-product/doc/img/sf-addNew.png)   
+![plot](/salesforce-connector-product/doc/img/sf-addNew.png)  
+
+5. View detail:
+
+![plot](/salesforce-connector-product/doc/img/sf-detail.png)   
+
+6. Edit:
+
+![plot](/salesforce-connector-product/doc/img/sf-edit.png)
+
+7. Delete:
+
+![plot](/salesforce-connector-product/doc/img/sf-delete.png)   
 
 
 # Resource:
