@@ -55,12 +55,13 @@
         "responseCode" : [
           "import com.axonivy.connector.salesforce.utils.ConvertUtils;",
           "",
-          "ivy.log.info(result);",
+          "",
           "in.opptunity = ConvertUtils.convertToOpportunity(result);"
         ]
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 }
+        "at" : { "x" : 224, "y" : 64 },
+        "icon" : "res:/webContent/icons/Salesforce-logo.jpg"
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ]

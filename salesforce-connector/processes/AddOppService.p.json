@@ -56,13 +56,13 @@
         "bodyInputType" : "ENTITY",
         "responseCode" : [
           "import com.axonivy.connector.salesforce.utils.ConvertUtils;",
-          "ivy.log.info(result);",
-          "in.oppResponse = ConvertUtils.convertToOpportunityResponse(result);",
-          "ivy.log.info(in.oppResponse.id);"
+          "",
+          "in.oppResponse = ConvertUtils.convertToOpportunityResponse(result);"
         ]
       },
       "visual" : {
-        "at" : { "x" : 288, "y" : 64 }
+        "at" : { "x" : 288, "y" : 64 },
+        "icon" : "res:/webContent/icons/Salesforce-logo.jpg"
       },
       "connect" : { "id" : "f4", "to" : "f1" }
     } ]
