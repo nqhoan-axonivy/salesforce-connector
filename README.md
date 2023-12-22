@@ -59,15 +59,19 @@ After calling the SF API, We can show a List of all Opportunities and we can man
 
 1. Query Service:
 
-![plot](/salesforce-connector-demo/recources/demo1.png)
+![plot](/salesforce-connector-product/doc/img/sf-query.png)
 
 2. Chart bar:
 
-![plot](/salesforce-connector-demo/recources/demo2.png)
+![plot](/salesforce-connector-product/doc/img/sf-chart.png)
 
 3. List all Opportunities:
 
-![plot](/salesforce-connector-demo/recources/demo3.png)
+![plot](/salesforce-connector-product/doc/img/sf-list.png)
+
+4. Add new Opportunity:
+
+![plot](/salesforce-connector-product/doc/img/sf-addNew.png)   
 
 
 # Resource:
