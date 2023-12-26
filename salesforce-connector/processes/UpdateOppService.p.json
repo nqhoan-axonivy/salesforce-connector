@@ -42,25 +42,30 @@
       "type" : "RestClientCall",
       "name" : "Update Opportunity",
       "config" : {
-        "path" : "/sobjects/Opportunity/{id}",
+        "headers" : {
+          "Accept" : "*/*",
+          "X-Requested-By" : "in.oppotunity"
+        },
         "bodyObjectMapping" : {
           "param" : "in.oppotunity"
         },
         "clientId" : "a8bd1ef0-7283-4211-9672-3231654ad15f",
-        "clientErrorCode" : "ivy:error:rest:client",
         "method" : "PATCH",
         "statusErrorCode" : "ivy:error:rest:client",
         "bodyObjectType" : "com.axonivy.connector.salesforce.model.OpportunityUpdateDTO",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : "ivy.log.info(\"response: \" + response.getStatus());",
+        "path" : "/sobjects/Opportunity/{id}",
+        "clientErrorCode" : "ivy:error:rest:client",
         "templateParams" : {
           "subdomain" : "",
           "id" : "in.id"
         },
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "bodyInputType" : "ENTITY",
-        "responseCode" : "ivy.log.info(\"response: \" + response.getStatus());"
+        "resultType" : "com.fasterxml.jackson.databind.JsonNode"
       },
       "visual" : {
-        "at" : { "x" : 288, "y" : 64 }
+        "at" : { "x" : 288, "y" : 64 },
+        "icon" : "res:/webContent/icons/Salesforce-logo.jpg"
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ]

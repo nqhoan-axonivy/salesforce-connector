@@ -5,10 +5,11 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 import javax.annotation.security.PermitAll;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.PATCH;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -16,12 +17,10 @@ import javax.ws.rs.core.Response;
 
 import org.apache.commons.io.IOUtils;
 
-import com.axonivy.connector.salesforce.model.Opportunity;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.v3.oas.annotations.Hidden;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @Path("salesforceMock")
 @PermitAll
@@ -42,7 +41,28 @@ public class SalesforceMock {
 	public Response createNewOpp(JsonNode jsonNode) {
 		return Response.status(201).entity(load("json/createNewOppResponse.json")).build();
 	}
-
+	
+	@PATCH
+	@Path("sobjects/Opportunity/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response UpdateOpp(@PathParam("id") String id, JsonNode jsonNode) {
+		return Response.status(204).entity("").build();
+	}
+	
+	@GET
+	@Path("sobjects/Account/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAcc(@PathParam("id") String id) {
+		return Response.status(200).entity(load("json/account.json")).build();
+	}
+	
+	@GET
+	@Path("sobjects/Opportunity/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getOpportunity(@PathParam("id") String id) {
+		return Response.status(200).entity(load("json/opportunity.json")).build();
+	}
+	
 	private static String load(String path) {
 		try (InputStream is = SalesforceMock.class.getResourceAsStream(path)) {
 			return IOUtils.toString(is, StandardCharsets.UTF_8);

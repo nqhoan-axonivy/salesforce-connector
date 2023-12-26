@@ -3,15 +3,14 @@ package com.axonivy.connector.salesforce.test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.connector.salesforce.model.Opportunity;
-import com.axonivy.connector.salesforce.utils.ConvertUtils;
+import com.axonivy.connector.salesforce.model.Account;
+import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
-import com.fasterxml.jackson.databind.JsonNode;
 
 import ch.ivyteam.ivy.bpm.engine.client.BpmClient;
 import ch.ivyteam.ivy.bpm.engine.client.ExecutionResult;
@@ -20,19 +19,17 @@ import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
 @IvyProcessTest
-public class QueryServiceAPITest extends BaseTest{
-	private static final BpmProcess testee = BpmProcess.path("QueryService");
+public class GetAccServiceAPITest extends BaseTest{
+	private static final BpmProcess testee = BpmProcess.path("GetAccService");
 
 	@Test
-	void getAllOpps(BpmClient bpmClient)
+	void getAccount(BpmClient bpmClient)
 			throws NoSuchFieldException, StreamReadException, DatabindException, IOException {
 		BpmElement startable = testee.elementName("call(String)");
-		ExecutionResult result = bpmClient.start().subProcess(startable).execute("Select FIELDS(ALL) from Opportunity LIMIT 200");
-		JsonNode jsonNode = (JsonNode) result.data().last().get("jsonNode");
+		
+		ExecutionResult result = bpmClient.start().subProcess(startable).execute("123456789");
+		Account response = (Account) result.data().last().get("acc");
 
-		List<Opportunity> opps = ConvertUtils.convertToListOpportunity(jsonNode);
-
-		assertThat(opps.size()).isEqualTo(3);
-		assertThat(opps.get(0).getName()).isEqualTo("Test 1");
+		assertThat(response.getName()).isEqualTo("Acc test1");
 	}
 }
