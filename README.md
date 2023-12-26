@@ -1,8 +1,8 @@
 # salesforce-connector
 # Introduction
-This Connector builds the Rest API that offers a way to access Salesforce's resources.
+This Connector builds the Rest API and offers a way to access Salesforce's resources.
 
-A client can be called the Rest API for manipulating the SF(Salesforce) Objects. For Instance, to do a **CRUD** Operation or query to retrieve data.
+A client can be called the Rest API for manipulating the SF(Salesforce) Objects. For Instance, to do a **CRUD** operation for an Opportunity object or query to retrieve data.
 
 # Approach
 Data is stored on the SF Application as SF Objects.
