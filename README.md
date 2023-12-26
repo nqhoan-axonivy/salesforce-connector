@@ -51,7 +51,7 @@ After calling the SF API, We can show a List of all Opportunities and we can man
      
   3. The connector app has created a CRUD sub-process call for Opportunity Object: AddOppService, GetOppService, UpdateOppService, DeleteOppService.
      
-  5. For Query, the connector has defined a Service called **QueryService**. Just simply pass the query command to get the list of data responses.
+  5. For Query, the connector has defined a API Service called **QueryService**. Just simply pass the query command to get the list of data in responses.
      
      > **Note:** The Salesforce provides SOQL to query all the SF objects. [Salesforce SOQL](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm)
 
