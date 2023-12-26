@@ -1,5 +1,5 @@
 {
-    "totalSize": 34,
+    "totalSize": 3,
     "done": true,
     "records": [
         {
@@ -11,7 +11,7 @@
             "IsDeleted": false,
             "AccountId": null,
             "IsPrivate": false,
-            "Name": "Kim Test with Vu",
+            "Name": "Test 1",
             "Description": "Kim Kim",
             "StageName": "Value Proposition",
             "Amount": 99.0,
