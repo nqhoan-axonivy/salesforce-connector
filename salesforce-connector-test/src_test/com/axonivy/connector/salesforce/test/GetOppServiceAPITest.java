@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.connector.salesforce.model.Account;
 import com.axonivy.connector.salesforce.model.Opportunity;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;

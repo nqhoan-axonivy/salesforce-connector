@@ -31,7 +31,7 @@ public class SalesforceMock {
 	@GET
 	@Path("query")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getLists(@QueryParam("q") String q) {
+	public Response getListOpps(@QueryParam("q") String q) {
 		return Response.status(200).entity(load("json/oppLists.json")).build();
 	}
 	
@@ -52,7 +52,7 @@ public class SalesforceMock {
 	@GET
 	@Path("sobjects/Account/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getAcc(@PathParam("id") String id) {
+	public Response getAccount(@PathParam("id") String id) {
 		return Response.status(200).entity(load("json/account.json")).build();
 	}
 	
