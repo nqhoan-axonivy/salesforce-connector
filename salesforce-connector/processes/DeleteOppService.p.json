@@ -36,6 +36,10 @@
       "name" : "Delete opportunity",
       "config" : {
         "path" : "/sobjects/Opportunity/{id}",
+        "headers" : {
+          "Accept" : "*/*",
+          "X-Requested-By" : "in.id"
+        },
         "clientId" : "a8bd1ef0-7283-4211-9672-3231654ad15f",
         "clientErrorCode" : "ivy:error:rest:client",
         "method" : "DELETE",
@@ -48,7 +52,8 @@
         "responseCode" : "ivy.log.info(\"delete response: \" + response.getStatus());"
       },
       "visual" : {
-        "at" : { "x" : 224, "y" : 64 }
+        "at" : { "x" : 224, "y" : 64 },
+        "icon" : "res:/webContent/icons/Salesforce-logo.jpg"
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ]

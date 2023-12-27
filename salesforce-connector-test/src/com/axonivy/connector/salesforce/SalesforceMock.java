@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 import javax.annotation.security.PermitAll;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.PATCH;
 import javax.ws.rs.POST;
@@ -26,7 +27,6 @@ import io.swagger.v3.oas.annotations.Hidden;
 @PermitAll
 @Hidden
 public class SalesforceMock {
-	ObjectMapper mapper = new ObjectMapper();
 	
 	@GET
 	@Path("query")
@@ -61,6 +61,13 @@ public class SalesforceMock {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getOpportunity(@PathParam("id") String id) {
 		return Response.status(200).entity(load("json/opportunity.json")).build();
+	}
+	
+	@DELETE
+	@Path("sobjects/Opportunity/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response deleteOpportunity(@PathParam("id") String id) {
+		return Response.status(204).entity("").build();
 	}
 	
 	private static String load(String path) {
