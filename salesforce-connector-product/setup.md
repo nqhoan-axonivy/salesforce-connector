@@ -2,23 +2,20 @@
 
 ### Variables
 
-In order to use this product you must configure multiple variables.
-
-Add the following block to your `config/variables.yaml` file of our 
-main Business Project that will make use of this product:
+To use this product, you need to configure multiple variables. Please add the following block to the `config/variables.yaml` file of our main Business Project, which will make use of this product:
 
 ```
 @variables.yaml@ 
 ```
 
-Afterwards set the Consumer key, Consumer Secret, and App domain as shown in the Salesforce App setup below.
+Afterwards, set the Consumer Key, Consumer Secret, and App Domain as shown in the Salesforce App setup below.
 
 Example App domain: axonactive3-dev-ed.develop
 
 
 ### Salesforce App
 
-1. Create the Connected App so that can generate the Authentication information
+1. Create the Connected App to generate authentication information
 
 ![plot](/salesforce-connector-product/doc/img/sf-connected-app-01.png)
 
