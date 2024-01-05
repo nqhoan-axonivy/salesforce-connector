@@ -39,14 +39,6 @@
 								filteredValue="#{data.bean.filterOpps}"
                      			globalFilterFunction="#{data.bean.globalFilterFunction}">
 
-
-								<f:facet name="header">
-					                <div class="flex justify-content-end">
-					                    <p:inputText id="globalFilter" onkeyup="PF('oppDataTable').filter()" styleClass="width-300-px"
-					                                 placeholder="Enter search here" />
-					                </div>
-					            </f:facet>
-
 								<p:column
 									headerText="#{ivy.cms.co('/Dialogs/listOpps/oppName')}"
 									width="120px;" sortBy="#{opp.oppName}"
