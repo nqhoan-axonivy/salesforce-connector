@@ -10,15 +10,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Account implements Serializable {
 	private static final long serialVersionUID = 1L;
-    
-    @JsonProperty("Id")
-    private String id;
-    
-    @JsonProperty("IsDeleted")
-    private Boolean isDeleted;
-    
-    @JsonProperty("Name")
-    private String name;
+
+	@JsonProperty("Id")
+	private String id;
+
+	@JsonProperty("IsDeleted")
+	private Boolean isDeleted;
+
+	@JsonProperty("Name")
+	private String name;
 
 	public String getId() {
 		return id;
@@ -42,6 +42,6 @@ public class Account implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}    
-    
+	}
+
 }

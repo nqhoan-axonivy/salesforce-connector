@@ -1,4 +1,4 @@
 UpdateServiceData #class
 com.axonivy.connector.salesforce.connector #namespace
 id String #field
-oppotunity com.axonivy.connector.salesforce.model.OpportunityUpdateDTO #field
+opportunity com.axonivy.connector.salesforce.model.OpportunityUpdateDTO #field

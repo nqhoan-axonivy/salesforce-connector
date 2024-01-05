@@ -1,4 +1,4 @@
-findAllEventByOpportunityIdData #class
+FindAllEventByOpportunityIdData #class
 salesforce.connector.demo #namespace
 events java.util.List<com.axonivy.connector.salesforce.model.Event> #field
 oppId String #field

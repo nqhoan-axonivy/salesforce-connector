@@ -9,149 +9,148 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Opportunity  implements Serializable {
+public class Opportunity implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
-    @JsonProperty("Id")
-    private String id;
-    
-    @JsonProperty("IsDeleted")
-    private Boolean isDeleted;
-    
-    @JsonProperty("AccountId")
-    private String accountId;
-    
-    @JsonProperty("IsPrivate")
-    private Boolean isPrivate;
-    
-    @JsonProperty("Name")
-    private String name;
-    
-    @JsonProperty("Description")
-    private String description;
-    
-    @JsonProperty("StageName")
-    private String stageName;
-    
-    @JsonProperty("Amount")
-    private Double amount;
-    
-    @JsonProperty("Probability")
-    private Double probability;
-    
-    @JsonProperty("ExpectedRevenue")
-    private Double expectedRevenue;
-    
-    @JsonProperty("TotalOpportunityQuantity")
-    private Long totalOpportunityQuantity;
-    
-    @JsonProperty("CloseDate")
-    private Date closeDate;
-    
-    @JsonProperty("Type")
-    private String type;
-    
-    @JsonProperty("NextStep")
-    private String nextStep;
-    
-    @JsonProperty("LeadSource")
-    private String leadSource;
-    
-    @JsonProperty("IsClosed")
-    private Boolean isClosed;
-    
-    @JsonProperty("IsWon")
-    private Boolean isWon;
-    
-    @JsonProperty("ForecastCategory")    
-    private String forecastCategory;
-    
-    @JsonProperty("ForecastCategoryName")
-    private String forecastCategoryName;
-    
-    @JsonProperty("CampaignId")
-    private String campaignId;
-    
-    @JsonProperty("HasOpportunityLineItem")
-    private Boolean hasOpportunityLineItem;
-    
-    @JsonProperty("Pricebook2Id")
-    private String pricebook2Id;
-    
-    @JsonProperty("OwnerId")
-    private String ownerId;
-    
-    @JsonProperty("CreatedDate")
-    private Date createdDate;
-    
-    @JsonProperty("CreatedById")
-    private String createdById;
-    
-    @JsonProperty("LastModifiedDate")
-    private Date lastModifiedDate;
-    
-    @JsonProperty("LastModifiedById")
-    private String lastModifiedById;
-    
-    @JsonProperty("SystemModstamp")
-    private Date systemModstamp;
-    
-    @JsonProperty("LastActivityDate")
-    private Date lastActivityDate;
-    
-    @JsonProperty("PushCount")
-    private Integer pushCount;
-    
-    @JsonProperty("LastStageChangeDate")
-    private Date lastStageChangeDate;
-    
-    @JsonProperty("FiscalQuarter")
-    private Integer fiscalQuarter;
-    
-    @JsonProperty("FiscalYear")
-    private Integer fiscalYear;
-    
-    @JsonProperty("Fiscal")
-    private String fiscal;
-    
-    @JsonProperty("ContactId")
-    private String contactId;
-    
-    @JsonProperty("LastViewedDate")    
-    private Date lastViewedDate;
-    
-    @JsonProperty("LastReferencedDate")
-    private Date lastReferencedDate;
-    
-    @JsonProperty("HasOpenActivity")
-    private Boolean hasOpenActivity;
-    
-    @JsonProperty("HasOverdueTask")
-    private Boolean hasOverdueTask;
-    
-    @JsonProperty("LastAmountChangedHistoryId")
-    private String lastAmountChangedHistoryId;
-    
-    @JsonProperty("LastCloseDateChangedHistoryId")
-    private String lastCloseDateChangedHistoryId;
-    
-    @JsonProperty("DeliveryInstallationStatus__c")
-    private String deliveryInstallationStatus__c;
-    
-    @JsonProperty("TrackingNumber__c")
-    private String trackingNumber__c;
-    
-    @JsonProperty("OrderNumber__c")
-    private String orderNumber__c;
-    
-    @JsonProperty("CurrentGenerators__c")
-    private String currentGenerators__c;
-    
-    @JsonProperty("MainCompetitors__c")
-    private String mainCompetitors__c;
+	private static final long serialVersionUID = 1L;
 
-    
+	@JsonProperty("Id")
+	private String id;
+
+	@JsonProperty("IsDeleted")
+	private Boolean isDeleted;
+
+	@JsonProperty("AccountId")
+	private String accountId;
+
+	@JsonProperty("IsPrivate")
+	private Boolean isPrivate;
+
+	@JsonProperty("Name")
+	private String name;
+
+	@JsonProperty("Description")
+	private String description;
+
+	@JsonProperty("StageName")
+	private String stageName;
+
+	@JsonProperty("Amount")
+	private Double amount;
+
+	@JsonProperty("Probability")
+	private Double probability;
+
+	@JsonProperty("ExpectedRevenue")
+	private Double expectedRevenue;
+
+	@JsonProperty("TotalOpportunityQuantity")
+	private Long totalOpportunityQuantity;
+
+	@JsonProperty("CloseDate")
+	private Date closeDate;
+
+	@JsonProperty("Type")
+	private String type;
+
+	@JsonProperty("NextStep")
+	private String nextStep;
+
+	@JsonProperty("LeadSource")
+	private String leadSource;
+
+	@JsonProperty("IsClosed")
+	private Boolean isClosed;
+
+	@JsonProperty("IsWon")
+	private Boolean isWon;
+
+	@JsonProperty("ForecastCategory")
+	private String forecastCategory;
+
+	@JsonProperty("ForecastCategoryName")
+	private String forecastCategoryName;
+
+	@JsonProperty("CampaignId")
+	private String campaignId;
+
+	@JsonProperty("HasOpportunityLineItem")
+	private Boolean hasOpportunityLineItem;
+
+	@JsonProperty("Pricebook2Id")
+	private String pricebook2Id;
+
+	@JsonProperty("OwnerId")
+	private String ownerId;
+
+	@JsonProperty("CreatedDate")
+	private Date createdDate;
+
+	@JsonProperty("CreatedById")
+	private String createdById;
+
+	@JsonProperty("LastModifiedDate")
+	private Date lastModifiedDate;
+
+	@JsonProperty("LastModifiedById")
+	private String lastModifiedById;
+
+	@JsonProperty("SystemModstamp")
+	private Date systemModstamp;
+
+	@JsonProperty("LastActivityDate")
+	private Date lastActivityDate;
+
+	@JsonProperty("PushCount")
+	private Integer pushCount;
+
+	@JsonProperty("LastStageChangeDate")
+	private Date lastStageChangeDate;
+
+	@JsonProperty("FiscalQuarter")
+	private Integer fiscalQuarter;
+
+	@JsonProperty("FiscalYear")
+	private Integer fiscalYear;
+
+	@JsonProperty("Fiscal")
+	private String fiscal;
+
+	@JsonProperty("ContactId")
+	private String contactId;
+
+	@JsonProperty("LastViewedDate")
+	private Date lastViewedDate;
+
+	@JsonProperty("LastReferencedDate")
+	private Date lastReferencedDate;
+
+	@JsonProperty("HasOpenActivity")
+	private Boolean hasOpenActivity;
+
+	@JsonProperty("HasOverdueTask")
+	private Boolean hasOverdueTask;
+
+	@JsonProperty("LastAmountChangedHistoryId")
+	private String lastAmountChangedHistoryId;
+
+	@JsonProperty("LastCloseDateChangedHistoryId")
+	private String lastCloseDateChangedHistoryId;
+
+	@JsonProperty("DeliveryInstallationStatus__c")
+	private String deliveryInstallationStatus__c;
+
+	@JsonProperty("TrackingNumber__c")
+	private String trackingNumber__c;
+
+	@JsonProperty("OrderNumber__c")
+	private String orderNumber__c;
+
+	@JsonProperty("CurrentGenerators__c")
+	private String currentGenerators__c;
+
+	@JsonProperty("MainCompetitors__c")
+	private String mainCompetitors__c;
+
 	public String getId() {
 		return id;
 	}
@@ -518,6 +517,6 @@ public class Opportunity  implements Serializable {
 
 	public void setMainCompetitors__c(String mainCompetitors__c) {
 		this.mainCompetitors__c = mainCompetitors__c;
-	}    
-    
+	}
+
 }

@@ -30,7 +30,6 @@ public class ChartBean {
 	public ChartBean() {
 		opps = new ArrayList<>();
 		opportunities = Utils.getAllOpps();
-		Ivy.log().info("list opportunities: " + opportunities.size());
 		
 		opps = Utils.convertToOppDTO(opportunities);
 		
@@ -87,13 +86,11 @@ public class ChartBean {
 
         barModel.setData(data);
         
-      //Options
+        //Options
         BarChartOptions options = new BarChartOptions();
-//        options.setMaintainAspectRatio(false);
         CartesianScales cScales = new CartesianScales();
         CartesianLinearAxes linearAxes = new CartesianLinearAxes();
         linearAxes.setOffset(true);
-//        linearAxes.setBeginAtZero(true);
         CartesianLinearTicks ticks = new CartesianLinearTicks();
         linearAxes.setTicks(ticks);
         cScales.addYAxesData(linearAxes);

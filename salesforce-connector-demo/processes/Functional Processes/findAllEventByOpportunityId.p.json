@@ -3,7 +3,7 @@
   "id" : "18C19E836CE959F3",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "salesforce.connector.demo.findAllEventByOpportunityIdData"
+    "data" : "salesforce.connector.demo.FindAllEventByOpportunityIdData"
   },
   "elements" : [ {
       "id" : "f0",

@@ -3,7 +3,7 @@
   "id" : "18BB87D903C86664",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "salesforce.connector.demo.getOppotunityData"
+    "data" : "salesforce.connector.demo.GetOppotunityData"
   },
   "elements" : [ {
       "id" : "f0",
@@ -47,7 +47,7 @@
         "output" : {
           "map" : {
             "out" : "in",
-            "out.opp" : "result.oppotunity"
+            "out.opp" : "result.opportunity"
           }
         },
         "call" : {

@@ -11,73 +11,73 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OpportunityUpdateDTO implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
-    @JsonProperty("AccountId")
-    private String accountId;
-    
-    @JsonProperty("IsPrivate")
-    private Boolean isPrivate;
-    
-    @JsonProperty("Name")
-    private String name;
-    
-    @JsonProperty("Description")
-    private String description;
-    
-    @JsonProperty("StageName")
-    private String stageName;
-    
-    @JsonProperty("Amount")
-    private Double amount;
-    
-    @JsonProperty("Probability")
-    private Double probability;
-    
-    @JsonProperty("TotalOpportunityQuantity")
-    private Long totalOpportunityQuantity;
-    
-    @JsonProperty("CloseDate")
-    private Date closeDate;
-    
-    @JsonProperty("Type")
-    private String type;
-    
-    @JsonProperty("NextStep")
-    private String nextStep;
-    
-    @JsonProperty("LeadSource")
-    private String leadSource;
-    
-    @JsonProperty("ForecastCategoryName")
-    private String forecastCategoryName;
-    
-    @JsonProperty("CampaignId")
-    private String campaignId;
-        
-    @JsonProperty("Pricebook2Id")
-    private String pricebook2Id;
-    
-    @JsonProperty("OwnerId")
-    private String ownerId;
-    
-    @JsonProperty("ContactId")
-    private String contactId;
-    
-    @JsonProperty("DeliveryInstallationStatus__c")
-    private String deliveryInstallationStatus__c;
-    
-    @JsonProperty("TrackingNumber__c")
-    private String trackingNumber__c;
-    
-    @JsonProperty("OrderNumber__c")
-    private String orderNumber__c;
-    
-    @JsonProperty("CurrentGenerators__c")
-    private String currentGenerators__c;
-    
-    @JsonProperty("MainCompetitors__c")
-    private String mainCompetitors__c;
+	private static final long serialVersionUID = 1L;
+
+	@JsonProperty("AccountId")
+	private String accountId;
+
+	@JsonProperty("IsPrivate")
+	private Boolean isPrivate;
+
+	@JsonProperty("Name")
+	private String name;
+
+	@JsonProperty("Description")
+	private String description;
+
+	@JsonProperty("StageName")
+	private String stageName;
+
+	@JsonProperty("Amount")
+	private Double amount;
+
+	@JsonProperty("Probability")
+	private Double probability;
+
+	@JsonProperty("TotalOpportunityQuantity")
+	private Long totalOpportunityQuantity;
+
+	@JsonProperty("CloseDate")
+	private Date closeDate;
+
+	@JsonProperty("Type")
+	private String type;
+
+	@JsonProperty("NextStep")
+	private String nextStep;
+
+	@JsonProperty("LeadSource")
+	private String leadSource;
+
+	@JsonProperty("ForecastCategoryName")
+	private String forecastCategoryName;
+
+	@JsonProperty("CampaignId")
+	private String campaignId;
+
+	@JsonProperty("Pricebook2Id")
+	private String pricebook2Id;
+
+	@JsonProperty("OwnerId")
+	private String ownerId;
+
+	@JsonProperty("ContactId")
+	private String contactId;
+
+	@JsonProperty("DeliveryInstallationStatus__c")
+	private String deliveryInstallationStatus__c;
+
+	@JsonProperty("TrackingNumber__c")
+	private String trackingNumber__c;
+
+	@JsonProperty("OrderNumber__c")
+	private String orderNumber__c;
+
+	@JsonProperty("CurrentGenerators__c")
+	private String currentGenerators__c;
+
+	@JsonProperty("MainCompetitors__c")
+	private String mainCompetitors__c;
 
 	public String getAccountId() {
 		return accountId;
@@ -258,6 +258,5 @@ public class OpportunityUpdateDTO implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-    
-    
+
 }

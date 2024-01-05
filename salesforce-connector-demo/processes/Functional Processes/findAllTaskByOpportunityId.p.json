@@ -3,7 +3,7 @@
   "id" : "18C19E6F2ADC725A",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "salesforce.connector.demo.findAllTaskByOpportunityIdData"
+    "data" : "salesforce.connector.demo.FindAllTaskByOpportunityIdData"
   },
   "elements" : [ {
       "id" : "f0",
