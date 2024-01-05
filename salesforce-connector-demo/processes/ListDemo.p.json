@@ -31,11 +31,11 @@
         "startMethod" : "start()",
         "case" : {
           "name" : "Opportunities",
-          "description" : "Opportunities"
+          "description" : "List Opportunities"
         },
         "task" : {
           "name" : "Opportunities",
-          "description" : "Opportunities",
+          "description" : "List Opportunities",
           "skipTasklist" : true
         }
       },

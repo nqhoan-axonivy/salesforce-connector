@@ -11,62 +11,61 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Task implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@JsonProperty("Id")
-    private String id;
-	
+	private String id;
+
 	@JsonProperty("WhatId")
-    private String whatId;
-	
+	private String whatId;
+
 	@JsonProperty("Subject")
-    private String subject;
-	
+	private String subject;
+
 	@JsonProperty("ActivityDate")
-    private Date activityDate;
-	
+	private Date activityDate;
+
 	@JsonProperty("Status")
-    private String status;
-	
+	private String status;
+
 	@JsonProperty("Priority")
-    private String priority;
-	
+	private String priority;
+
 	@JsonProperty("IsHighPriority")
-    private Boolean isHighPriority;
-	
+	private Boolean isHighPriority;
+
 	@JsonProperty("OwnerId")
-    private String ownerId;
-	
+	private String ownerId;
+
 	@JsonProperty("AccountId")
-    private String accountId;
-	
+	private String accountId;
+
 	@JsonProperty("Description")
-    private String description;
-	
+	private String description;
+
 	@JsonProperty("IsDeleted")
-    private Boolean isDeleted;
-	
+	private Boolean isDeleted;
+
 	@JsonProperty("IsClosed")
-    private Boolean isClosed;
-	
+	private Boolean isClosed;
+
 	@JsonProperty("IsArchived")
-    private Boolean isArchived;
-	
+	private Boolean isArchived;
+
 	@JsonProperty("TaskSubtype")
-    private String taskSubtype;
-	
+	private String taskSubtype;
+
 	@JsonProperty("CompletedDateTime")
-    private Date completedDateTime;
-	
+	private Date completedDateTime;
+
 	@JsonProperty("IsReminderSet")
 	private Boolean isReminderSet;
-	
+
 	@JsonProperty("IsRecurrence")
 	private Boolean isRecurrence;
-	
+
 	@JsonProperty("Name")
-    private String name;
-	
+	private String name;
 
 	public String getId() {
 		return id;
@@ -235,5 +234,5 @@ public class Task implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 }

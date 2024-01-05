@@ -16,7 +16,7 @@
             { "name" : "query", "type" : "String" }
           ],
           "map" : {
-            "out.q" : "param.query"
+            "out.query" : "param.query"
           }
         },
         "result" : {
@@ -47,17 +47,21 @@
         "clientId" : "a8bd1ef0-7283-4211-9672-3231654ad15f",
         "clientErrorCode" : "ivy:error:rest:client",
         "queryParams" : {
-          "q" : "in.q"
+          "q" : "in.query"
         },
         "statusErrorCode" : "ivy:error:rest:client",
-        "templateParams" : {
-          "subdomain" : ""
+        "responseMapping" : {
+          "out.jsonNode" : "result"
         },
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "responseCode" : "in.jsonNode = result;"
+        "templateParams" : {
+          "subdomain" : "",
+          "ivy.var.salesforce-connector.auth.url" : ""
+        },
+        "resultType" : "com.fasterxml.jackson.databind.JsonNode"
       },
       "visual" : {
-        "at" : { "x" : 264, "y" : 64 }
+        "at" : { "x" : 264, "y" : 64 },
+        "icon" : "res:/webContent/icons/Salesforce-logo.jpg"
       },
       "connect" : { "id" : "f2", "to" : "f1" }
     } ]

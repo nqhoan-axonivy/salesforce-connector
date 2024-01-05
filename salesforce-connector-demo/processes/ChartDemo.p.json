@@ -25,16 +25,16 @@
     }, {
       "id" : "f2",
       "type" : "UserTask",
-      "name" : "Chart Demo",
+      "name" : "ChartDemo",
       "config" : {
         "dialogId" : "salesforce.connector.demo.Chart",
         "startMethod" : "start()",
         "case" : {
-          "name" : "Chart Demo",
+          "name" : "ChartDemo",
           "description" : "Chart Demo"
         },
         "task" : {
-          "name" : "Chart Demo",
+          "name" : "ChartDemo",
           "description" : "Chart Demo",
           "skipTasklist" : true
         }

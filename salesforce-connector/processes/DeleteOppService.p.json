@@ -48,8 +48,7 @@
           "subdomain" : "",
           "id" : "in.id"
         },
-        "resultType" : "com.fasterxml.jackson.databind.JsonNode",
-        "responseCode" : "ivy.log.info(\"delete response: \" + response.getStatus());"
+        "resultType" : "com.fasterxml.jackson.databind.JsonNode"
       },
       "visual" : {
         "at" : { "x" : 224, "y" : 64 },

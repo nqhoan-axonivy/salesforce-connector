@@ -13,10 +13,10 @@
         "callSignature" : "call",
         "input" : {
           "params" : [
-            { "name" : "oppotunity", "type" : "com.axonivy.connector.salesforce.model.Opportunity" }
+            { "name" : "opportunity", "type" : "com.axonivy.connector.salesforce.model.Opportunity" }
           ],
           "map" : {
-            "out.oppotunity" : "param.oppotunity"
+            "out.opportunity" : "param.opportunity"
           }
         },
         "result" : {
@@ -46,10 +46,10 @@
         "path" : "/sobjects/Opportunity",
         "headers" : {
           "Accept" : "*/*",
-          "X-Requested-By" : "in.oppotunity"
+          "X-Requested-By" : "in.opportunity"
         },
         "bodyObjectMapping" : {
-          "param" : "in.oppotunity"
+          "param" : "in.opportunity"
         },
         "clientId" : "a8bd1ef0-7283-4211-9672-3231654ad15f",
         "clientErrorCode" : "ivy:error:rest:client",

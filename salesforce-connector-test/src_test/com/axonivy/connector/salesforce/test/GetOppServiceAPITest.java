@@ -26,7 +26,7 @@ public class GetOppServiceAPITest extends BaseTest{
 		BpmElement startable = testee.elementName("call(String)");
 		
 		ExecutionResult result = bpmClient.start().subProcess(startable).execute("123456789");
-		Opportunity response = (Opportunity) result.data().last().get("opptunity");
+		Opportunity response = (Opportunity) result.data().last().get("opportunity");
 
 		assertThat(response.getName()).isEqualTo("Test 1");
 	}

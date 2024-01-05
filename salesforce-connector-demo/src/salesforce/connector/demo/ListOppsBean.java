@@ -9,17 +9,7 @@ import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.primefaces.model.charts.ChartData;
-import org.primefaces.model.charts.axes.cartesian.CartesianScales;
-import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearAxes;
-import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearTicks;
-import org.primefaces.model.charts.bar.BarChartDataSet;
 import org.primefaces.model.charts.bar.BarChartModel;
-import org.primefaces.model.charts.bar.BarChartOptions;
-import org.primefaces.model.charts.optionconfig.animation.Animation;
-import org.primefaces.model.charts.optionconfig.legend.Legend;
-import org.primefaces.model.charts.optionconfig.legend.LegendLabel;
-import org.primefaces.model.charts.optionconfig.title.Title;
 import org.primefaces.util.LangUtils;
 
 import com.axonivy.connector.salesforce.model.Account;
@@ -45,45 +35,39 @@ public class ListOppsBean {
 	private List<String> stages;
 	private OpportunityUpdateDTO updateDTO;
 	private ActivityDTO activityDTO;
-	
+
 	public ListOppsBean() {
-		ownerId= "0055h000009a4XMAAY";
+		ownerId = "0055h000009a4XMAAY";
 		opps = new ArrayList<>();
 		getAllOpps();
-		Ivy.log().info("list opportunities: " + opportunities.size());
-		
+
 		opps = Utils.convertToOppDTO(opportunities);
-		
+
 	}
-	
+
 	public void openOpportunityDetail(String id) {
 		selectedOpp = SubProcessCall.withPath("Functional Processes/getOpportunity")
-				.withStartSignature("getOpportunity(String)")
-				.withParam("id", id)
-				.call()
-				.get("opp", Opportunity.class);
+				.withStartSignature("getOpportunity(String)").withParam("id", id).call().get("opp", Opportunity.class);
 		accountName = Utils.getAccName(selectedOpp.getAccountId());
 		getActivities();
 	}
-	
+
 	private void getActivities() {
 		activityDTO = new ActivityDTO();
 		activityDTO.setTasks(Utils.getAllTasks(selectedOpp.getId()));
-		activityDTO.setEvents(Utils.getAllEvents(selectedOpp.getId()));		
+		activityDTO.setEvents(Utils.getAllEvents(selectedOpp.getId()));
 	}
 
 	public void getAllOpps() {
 		opportunities = Utils.getAllOpps();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void getAllAccounts() {
 		accs = (List<Account>) SubProcessCall.withPath("Functional Processes/getAccounts")
-				.withStartSignature("getAllAccounts()")
-		         .call()
-		         .get("accs", Account.class);
+				.withStartSignature("getAllAccounts()").call().get("accs", Account.class);
 	}
-	
+
 	public void addNewOppotunity() {
 		accountName = null;
 		selectedOpp = new Opportunity();
@@ -91,93 +75,84 @@ public class ListOppsBean {
 		getAllAccounts();
 		getListStages();
 	}
-	
+
 	public void updateOppotunity(String id) {
 		updateDTO = new OpportunityUpdateDTO();
 		openOpportunityDetail(id);
 		getAllAccounts();
 		getListStages();
 	}
-	
+
 	public void convertToUpdateDTO() throws IllegalAccessException, InvocationTargetException {
 		selectedOpp.setAccountId(getAccountIdByName(accountName));
 		updateDTO = ConvertUtils.convertToOpportunityObjUpdate(selectedOpp);
 	}
-	
+
 	public void updateCurrentListAfterUpdate() {
 		OptionalInt result = IntStream.range(0, opps.size())
-                .filter(x -> selectedOpp.getId().equals(opps.get(x).getId()))
-                .findFirst();
-		if (result.isPresent())
-		{
-		   int index = result.getAsInt();
-		   opps.set(index, Utils.convertToOppDTO(selectedOpp, updateDTO));
+				.filter(x -> selectedOpp.getId().equals(opps.get(x).getId())).findFirst();
+		if (result.isPresent()) {
+			int index = result.getAsInt();
+			opps.set(index, Utils.convertToOppDTO(selectedOpp, updateDTO));
 		}
 	}
-	
+
 	public void beforeDelete(String id) {
 		selectedOpp = SubProcessCall.withPath("Functional Processes/getOpportunity")
-				.withStartSignature("getOpportunity(String)")
-				.withParam("id", id)
-				.call()
-				.get("opp", Opportunity.class);
+				.withStartSignature("getOpportunity(String)").withParam("id", id).call().get("opp", Opportunity.class);
 	}
-	
+
 	public void updateCurrentListAfterDelete() {
 		OptionalInt result = IntStream.range(0, opps.size())
-                .filter(x -> selectedOpp.getId().equals(opps.get(x).getId()))
-                .findFirst();
-		if (result.isPresent())
-		{
-		   int index = result.getAsInt();
-		   opps.remove(index);
+				.filter(x -> selectedOpp.getId().equals(opps.get(x).getId())).findFirst();
+		if (result.isPresent()) {
+			int index = result.getAsInt();
+			opps.remove(index);
 		}
 	}
-	
+
 	private void getListStages() {
-		stages = Arrays.stream(Stage
-				.values())
-				.map(e -> e.getLabel())
-				.collect(Collectors.toList());
+		stages = Arrays.stream(Stage.values()).map(e -> e.getLabel()).collect(Collectors.toList());
 	}
 
 	public List<String> completeAccount(String query) {
-        String queryLowerCase = query.toLowerCase();
-        List<String> accountList = new ArrayList<>();
-        List<Account> acccountList = accs;
-        for (Account acc : acccountList) {
-        	accountList.add(acc.getName());
-        }
+		String queryLowerCase = query.toLowerCase();
+		List<String> accountList = new ArrayList<>();
+		List<Account> acccountList = accs;
+		for (Account acc : acccountList) {
+			accountList.add(acc.getName());
+		}
 
-        return accountList.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
-    }
-	
+		return accountList.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase))
+				.collect(Collectors.toList());
+	}
+
 	public String getAccountIdByName(String name) {
 		String accId = null;
-		Account acc =  accs.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);
-		if(acc != null) accId = acc.getId();
+		Account acc = accs.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);
+		if (acc != null)
+			accId = acc.getId();
 		return accId;
 	}
-	
+
 	public void reset() {
 		selectedOpp = new Opportunity();
 		accountName = null;
 	}
-	
-	public boolean globalFilterFunction(Object value, Object filter, Locale locale) {
-        String filterText = (filter == null) ? null : filter.toString().trim().toLowerCase();
-        if (LangUtils.isBlank(filterText)) {
-            return true;
-        }
 
-        OpportunityDTO opp = (OpportunityDTO) value;
-        return opp.getOppName().toLowerCase().contains(filterText)
-                || opp.getAccName().toLowerCase().contains(filterText)
-                || opp.getStage().toLowerCase().contains(filterText)
-                || opp.getCloseDate().toString().toLowerCase().contains(filterText)
-                ;
-    }
-	
+	public boolean globalFilterFunction(Object value, Object filter, Locale locale) {
+		String filterText = (filter == null) ? null : filter.toString().trim().toLowerCase();
+		if (LangUtils.isBlank(filterText)) {
+			return true;
+		}
+
+		OpportunityDTO opp = (OpportunityDTO) value;
+		return opp.getOppName().toLowerCase().contains(filterText)
+				|| opp.getAccName().toLowerCase().contains(filterText)
+				|| opp.getStage().toLowerCase().contains(filterText)
+				|| opp.getCloseDate().toString().toLowerCase().contains(filterText);
+	}
+
 	public String getAccountName(String id) {
 		return Utils.getAccName(id);
 	}
@@ -265,5 +240,5 @@ public class ListOppsBean {
 	public void setActivityDTO(ActivityDTO activityDTO) {
 		this.activityDTO = activityDTO;
 	}
-	
+
 }

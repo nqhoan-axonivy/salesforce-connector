@@ -76,7 +76,7 @@
             { "name" : "oppotunity", "type" : "com.axonivy.connector.salesforce.model.Opportunity" }
           ],
           "map" : {
-            "param.oppotunity" : "in.bean.selectedOpp"
+            "param.opportunity" : "in.bean.selectedOpp"
           }
         }
       },

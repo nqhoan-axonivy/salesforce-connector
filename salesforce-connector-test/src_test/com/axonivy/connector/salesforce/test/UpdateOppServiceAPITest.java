@@ -7,9 +7,7 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import com.axonivy.connector.salesforce.model.Opportunity;
 import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;
-import com.axonivy.connector.salesforce.response.CreateOppResponse;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 
@@ -20,7 +18,7 @@ import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
 @IvyProcessTest
-public class UpdateOppServiceAPITest extends BaseTest{
+public class UpdateOppServiceAPITest extends BaseTest {
 	private static final BpmProcess testee = BpmProcess.path("UpdateOppService");
 
 	@Test
@@ -31,7 +29,7 @@ public class UpdateOppServiceAPITest extends BaseTest{
 		opportunity.setStageName("Stage Name test 1");
 		opportunity.setCloseDate(new Date());
 		BpmElement startable = testee.elementName("call(String,OpportunityUpdateDTO)");
-		
+
 		ExecutionResult result = bpmClient.start().subProcess(startable).execute("123456789", opportunity);
 		OpportunityUpdateDTO response = (OpportunityUpdateDTO) result.data().last().get("oppotunity");
 

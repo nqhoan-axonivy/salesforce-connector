@@ -11,82 +11,82 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Event implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@JsonProperty("Id")
-    private String id;
-	
+	private String id;
+
 	@JsonProperty("WhatId")
-    private String whatId;
-	
+	private String whatId;
+
 	@JsonProperty("Subject")
-    private String subject;
-	
+	private String subject;
+
 	@JsonProperty("Location")
-    private String location;
-	
+	private String location;
+
 	@JsonProperty("IsAllDayEvent")
-    private Boolean isAllDayEvent;
-	
+	private Boolean isAllDayEvent;
+
 	@JsonProperty("ActivityDate")
-    private Date activityDate;
-	
+	private Date activityDate;
+
 	@JsonProperty("DurationInMinutes")
-    private Integer durationInMinutes;
-	
+	private Integer durationInMinutes;
+
 	@JsonProperty("StartDateTime")
-    private Date startDateTime;
-	
+	private Date startDateTime;
+
 	@JsonProperty("EndDateTime")
-    private Date endDateTime;
-	
+	private Date endDateTime;
+
 	@JsonProperty("Description")
-    private String description;
-	
+	private String description;
+
 	@JsonProperty("AccountId")
-    private String accountId;
-	
+	private String accountId;
+
 	@JsonProperty("OwnerId")
-    private String ownerId;
-	
+	private String ownerId;
+
 	@JsonProperty("IsPrivate")
-    private Boolean isPrivate;
-	
+	private Boolean isPrivate;
+
 	@JsonProperty("ShowAs")
-    private String showAs;
-	
+	private String showAs;
+
 	@JsonProperty("IsDeleted")
-    private Boolean isDeleted;
-	
+	private Boolean isDeleted;
+
 	@JsonProperty("IsChild")
-    private Boolean isChild;
-	
+	private Boolean isChild;
+
 	@JsonProperty("IsGroupEvent")
-    private Boolean isGroupEvent;
-	
+	private Boolean isGroupEvent;
+
 	@JsonProperty("IsArchived")
-    private Boolean isArchived;
-	
+	private Boolean isArchived;
+
 	@JsonProperty("IsRecurrence")
-    private Boolean isRecurrence;
-	
+	private Boolean isRecurrence;
+
 	@JsonProperty("EventSubtype")
-    private String eventSubtype;
-	
+	private String eventSubtype;
+
 	@JsonProperty("IsReminderSet")
-    private Boolean isReminderSet;
-	
+	private Boolean isReminderSet;
+
 	@JsonProperty("IsRecurrence2Exclusion")
-    private Boolean isRecurrence2Exclusion;
-	
+	private Boolean isRecurrence2Exclusion;
+
 	@JsonProperty("IsRecurrence2")
-    private Boolean isRecurrence2;
-	
+	private Boolean isRecurrence2;
+
 	@JsonProperty("IsRecurrence2Exception")
-    private Boolean isRecurrence2Exception;
-	
+	private Boolean isRecurrence2Exception;
+
 	@JsonProperty("Name")
-    private String name;
+	private String name;
 
 	public String getId() {
 		return id;
@@ -287,5 +287,5 @@ public class Event implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 }

@@ -4,5 +4,6 @@ Dialogs:
     action: Action
     amount: Amount
     closeDate: Close Date
+    listOpps: List Opportunities
     oppName: Opportunity Name
     stage: Stage

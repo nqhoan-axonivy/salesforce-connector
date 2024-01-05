@@ -23,46 +23,42 @@ import com.fasterxml.jackson.databind.util.BeanUtil;
 import ch.ivyteam.ivy.process.call.SubProcessCall;
 
 public class ConvertUtils {
+	private static final ObjectMapper mapper = new ObjectMapper();
+	private static final String RECORDS = "records";
 	
 	public static Opportunity convertToOpportunity(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
 		Opportunity opportunity = mapper.readValue( mapper.treeAsTokens(jsonNode), Opportunity.class);
 		return opportunity;
 	}
 	
 	public static List<Opportunity> convertToListOpportunity(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
-		ObjectMapper mapper = new ObjectMapper();	
-		JsonNode node = jsonNode.findValue("records");
+		JsonNode node = jsonNode.findValue(RECORDS);
 		
 		List<Opportunity> opportunities = mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Opportunity>>(){});
 		return opportunities;
 	}
 	
 	public static Account convertToAccount(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
 		Account acc = mapper.readValue( mapper.treeAsTokens(jsonNode), Account.class);
 		return acc;
 	}
 	
 	public static List<Account> convertToListAccounts(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
-		ObjectMapper mapper = new ObjectMapper();	
-		JsonNode node = jsonNode.findValue("records");
+		JsonNode node = jsonNode.findValue(RECORDS);
 		
 		List<Account> accounts = mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Account>>(){});
 		return accounts;
 	}
 	
 	public static List<Task> convertToListTask(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
-		ObjectMapper mapper = new ObjectMapper();	
-		JsonNode node = jsonNode.findValue("records");
+		JsonNode node = jsonNode.findValue(RECORDS);
 		
 		List<Task> tasks = mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Task>>(){});
 		return tasks;
 	}
 	
 	public static List<Event> convertToListEvent(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
-		ObjectMapper mapper = new ObjectMapper();	
-		JsonNode node = jsonNode.findValue("records");
+		JsonNode node = jsonNode.findValue(RECORDS);
 		
 		List<Event> events = mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Event>>(){});
 		return events;
@@ -75,12 +71,6 @@ public class ConvertUtils {
 	}
 	
 	public static CreateOppResponse convertToOpportunityResponse(JsonNode jsonNode) throws StreamReadException, DatabindException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		CreateOppResponse opportunity = mapper.readValue( mapper.treeAsTokens(jsonNode), CreateOppResponse.class);
-		return opportunity;
-	}
-	
-	public static <T extends Object> T getObject(Class cls, T object) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
-		return (T) cls.getDeclaredConstructor().newInstance(); 
+		return mapper.readValue( mapper.treeAsTokens(jsonNode), CreateOppResponse.class);
 	}
 }
