@@ -17,7 +17,6 @@ import com.axonivy.connector.salesforce.model.Opportunity;
 import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;
 import com.axonivy.connector.salesforce.utils.ConvertUtils;
 
-import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.process.call.SubProcessCall;
 import salesforce.connector.demo.dto.ActivityDTO;
 import salesforce.connector.demo.dto.OpportunityDTO;

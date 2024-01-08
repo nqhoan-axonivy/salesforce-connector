@@ -18,7 +18,6 @@ import org.primefaces.model.charts.optionconfig.title.Title;
 
 import com.axonivy.connector.salesforce.model.Opportunity;
 
-import ch.ivyteam.ivy.environment.Ivy;
 import salesforce.connector.demo.dto.OpportunityDTO;
 import salesforce.connector.demo.enums.Stage;
 

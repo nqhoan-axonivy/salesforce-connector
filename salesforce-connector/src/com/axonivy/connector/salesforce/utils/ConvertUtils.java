@@ -3,7 +3,6 @@ package com.axonivy.connector.salesforce.utils;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -18,9 +17,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.BeanUtil;
-
-import ch.ivyteam.ivy.process.call.SubProcessCall;
 
 public class ConvertUtils {
 	private static final ObjectMapper mapper = new ObjectMapper();
