@@ -17,13 +17,13 @@ import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
 @IvyProcessTest
 public class DeleteOppServiceAPITest extends BaseTest {
-	private static final BpmProcess testee = BpmProcess.path("DeleteOppService");
+	private static final BpmProcess DELETEOPPSERVICE_PROCESS = BpmProcess.path("DeleteOppService");
 
 	@Test
 	void deleteOpportunity(BpmClient bpmClient)
 			throws NoSuchFieldException, StreamReadException, DatabindException, IOException {
 
-		BpmElement startable = testee.elementName("call(String)");
+		BpmElement startable = DELETEOPPSERVICE_PROCESS.elementName("call(String)");
 
 		ExecutionResult result = bpmClient.start().subProcess(startable).execute("123456789");
 

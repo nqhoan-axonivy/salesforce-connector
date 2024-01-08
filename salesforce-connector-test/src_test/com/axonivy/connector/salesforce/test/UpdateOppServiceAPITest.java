@@ -19,7 +19,7 @@ import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
 @IvyProcessTest
 public class UpdateOppServiceAPITest extends BaseTest {
-	private static final BpmProcess testee = BpmProcess.path("UpdateOppService");
+	private static final BpmProcess UPPDATEOPPSERVICE_PROCESS = BpmProcess.path("UpdateOppService");
 
 	@Test
 	void updateOpp(BpmClient bpmClient)
@@ -28,7 +28,7 @@ public class UpdateOppServiceAPITest extends BaseTest {
 		opportunity.setName("Test 1");
 		opportunity.setStageName("Stage Name test 1");
 		opportunity.setCloseDate(new Date());
-		BpmElement startable = testee.elementName("call(String,OpportunityUpdateDTO)");
+		BpmElement startable = UPPDATEOPPSERVICE_PROCESS.elementName("call(String,OpportunityUpdateDTO)");
 
 		ExecutionResult result = bpmClient.start().subProcess(startable).execute("123456789", opportunity);
 		OpportunityUpdateDTO response = (OpportunityUpdateDTO) result.data().last().get("oppotunity");

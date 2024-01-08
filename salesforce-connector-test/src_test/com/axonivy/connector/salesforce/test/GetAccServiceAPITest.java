@@ -18,12 +18,12 @@ import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
 @IvyProcessTest
 public class GetAccServiceAPITest extends BaseTest {
-	private static final BpmProcess testee = BpmProcess.path("GetAccService");
+	private static final BpmProcess GETACCSERVICE_PROCESS = BpmProcess.path("GetAccService");
 
 	@Test
 	void getAccount(BpmClient bpmClient)
 			throws NoSuchFieldException, StreamReadException, DatabindException, IOException {
-		BpmElement startable = testee.elementName("call(String)");
+		BpmElement startable = GETACCSERVICE_PROCESS.elementName("call(String)");
 
 		ExecutionResult result = bpmClient.start().subProcess(startable).execute("123456789");
 		Account response = (Account) result.data().last().get("acc");
