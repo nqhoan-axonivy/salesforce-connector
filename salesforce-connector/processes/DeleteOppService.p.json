@@ -3,7 +3,7 @@
   "id" : "18BA91A960F33F4A",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "com.axonivy.connector.salesforce.connector.DeleteServiceData"
+    "data" : "com.axonivy.connector.salesforce.DeleteServiceData"
   },
   "elements" : [ {
       "id" : "f0",

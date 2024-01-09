@@ -23,8 +23,6 @@ import ch.ivyteam.ivy.rest.client.oauth2.uri.OAuth2UriProperty;
 public class OAuth2Feature implements Feature {
 	public static interface Default {
 		String AUTH_URI = "https://login.salesforce.com/services/oauth2/token";
-		String APP_SCOPE = "";
-		String USER_SCOPE = "read api";
 	}
 
 	public static interface Property {

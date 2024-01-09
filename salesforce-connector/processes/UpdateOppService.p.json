@@ -3,7 +3,7 @@
   "id" : "18BA90B58BA33FBC",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "com.axonivy.connector.salesforce.connector.UpdateServiceData"
+    "data" : "com.axonivy.connector.salesforce.UpdateServiceData"
   },
   "elements" : [ {
       "id" : "f0",
