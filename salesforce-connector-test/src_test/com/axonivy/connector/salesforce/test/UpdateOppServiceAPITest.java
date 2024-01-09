@@ -31,7 +31,7 @@ public class UpdateOppServiceAPITest extends BaseTest {
 		BpmElement startable = UPPDATEOPPSERVICE_PROCESS.elementName("call(String,OpportunityUpdateDTO)");
 
 		ExecutionResult result = bpmClient.start().subProcess(startable).execute("123456789", opportunity);
-		OpportunityUpdateDTO response = (OpportunityUpdateDTO) result.data().last().get("oppotunity");
+		OpportunityUpdateDTO response = (OpportunityUpdateDTO) result.data().last().get("opportunity");
 
 		assertThat(response.getName()).isEqualTo("Test 1");
 	}
