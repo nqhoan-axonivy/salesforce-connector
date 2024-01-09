@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.axonivy.connector.salesforce.dto.OpportunityDTO;
 import com.axonivy.connector.salesforce.model.Account;
 import com.axonivy.connector.salesforce.model.Event;
 import com.axonivy.connector.salesforce.model.Opportunity;
@@ -11,7 +12,6 @@ import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;
 import com.axonivy.connector.salesforce.model.Task;
 
 import ch.ivyteam.ivy.process.call.SubProcessCall;
-import com.axonivy.connector.salesforce.dto.OpportunityDTO;
 
 public class Utils {
 	public static String getAccName(String accountId) {

@@ -13,17 +13,17 @@ public class ActivityDTO {
 	public List<Task> getTasks() {
 		return tasks;
 	}
-	
+
 	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
 	}
-	
+
 	public List<Event> getEvents() {
 		return events;
 	}
-	
+
 	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
-	
+
 }

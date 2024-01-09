@@ -31,8 +31,7 @@ public class ConvertUtils {
 			throws StreamReadException, DatabindException, IOException {
 		JsonNode node = jsonNode.findValue(RECORDS);
 
-		return mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Opportunity>>() {
-		});
+		return mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Opportunity>>() {});
 	}
 
 	public static Account convertToAccount(JsonNode jsonNode)
@@ -44,24 +43,21 @@ public class ConvertUtils {
 			throws StreamReadException, DatabindException, IOException {
 		JsonNode node = jsonNode.findValue(RECORDS);
 
-		return mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Account>>() {
-		});
+		return mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Account>>() {});
 	}
 
 	public static List<Task> convertToListTask(JsonNode jsonNode)
 			throws StreamReadException, DatabindException, IOException {
 		JsonNode node = jsonNode.findValue(RECORDS);
 
-		return mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Task>>() {
-		});
+		return mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Task>>() {});
 	}
 
 	public static List<Event> convertToListEvent(JsonNode jsonNode)
 			throws StreamReadException, DatabindException, IOException {
 		JsonNode node = jsonNode.findValue(RECORDS);
 
-		return mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Event>>() {
-		});
+		return mapper.readValue(mapper.treeAsTokens(node), new TypeReference<List<Event>>() {});
 	}
 
 	public static OpportunityUpdateDTO convertToOpportunityObjUpdate(Opportunity opportunity)
