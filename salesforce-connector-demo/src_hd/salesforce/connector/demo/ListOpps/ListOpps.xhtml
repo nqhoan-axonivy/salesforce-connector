@@ -6,17 +6,16 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/basic-10.xhtml">
-		<ui:define name="title">#{ivy.cms.co("/Dialogs/listOpps/listOpps")}</ui:define>
+	<ui:composition template="/layouts/frame-10.xhtml">
+		<ui:define name="title">#{ivy.cms.co('/Dialogs/listOpps/listOpps')}</ui:define>
 		<ui:define name="content">
 			<h:form id="form">
 				<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
 				<div class="ui-fluid">
 					<div class="ui-g">
 						<div class="ui-g-12 ui-md-12 ui-lg-12">
-					        <div class="card">
-					        </div>
-					    </div>
+							<div class="card"></div>
+						</div>
 					</div>
 				</div>
 				<br />
