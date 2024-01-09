@@ -17,14 +17,14 @@ import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
 @IvyProcessTest
-public class GetOppServiceAPITest extends BaseTest{
+public class GetOppServiceAPITest extends BaseTest {
 	private static final BpmProcess GETOPPSERVICE_PROCESS = BpmProcess.path("GetOppService");
 
 	@Test
 	void getOpportunity(BpmClient bpmClient)
 			throws NoSuchFieldException, StreamReadException, DatabindException, IOException {
 		BpmElement startable = GETOPPSERVICE_PROCESS.elementName("call(String)");
-		
+
 		ExecutionResult result = bpmClient.start().subProcess(startable).execute("123456789");
 		Opportunity response = (Opportunity) result.data().last().get("opportunity");
 

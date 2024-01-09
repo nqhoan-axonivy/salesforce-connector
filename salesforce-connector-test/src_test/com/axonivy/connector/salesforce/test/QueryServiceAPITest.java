@@ -20,14 +20,15 @@ import ch.ivyteam.ivy.bpm.engine.client.element.BpmProcess;
 import ch.ivyteam.ivy.bpm.exec.client.IvyProcessTest;
 
 @IvyProcessTest
-public class QueryServiceAPITest extends BaseTest{
+public class QueryServiceAPITest extends BaseTest {
 	private static final BpmProcess QUERYSERVICE_PROCESS = BpmProcess.path("QueryService");
 
 	@Test
 	void getAllOpps(BpmClient bpmClient)
 			throws NoSuchFieldException, StreamReadException, DatabindException, IOException {
 		BpmElement startable = QUERYSERVICE_PROCESS.elementName("call(String)");
-		ExecutionResult result = bpmClient.start().subProcess(startable).execute("Select FIELDS(ALL) from Opportunity LIMIT 200");
+		ExecutionResult result = bpmClient.start().subProcess(startable)
+				.execute("Select FIELDS(ALL) from Opportunity LIMIT 200");
 		JsonNode jsonNode = (JsonNode) result.data().last().get("jsonNode");
 
 		List<Opportunity> opps = ConvertUtils.convertToListOpportunity(jsonNode);

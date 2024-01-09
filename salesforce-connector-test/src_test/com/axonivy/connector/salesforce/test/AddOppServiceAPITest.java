@@ -30,7 +30,7 @@ public class AddOppServiceAPITest extends BaseTest{
 		opportunity.setStageName("Stage Name test 1");
 		opportunity.setCloseDate(new Date());
 		BpmElement startable = ADDOPPSERVICE_PROCESS.elementName("call(Opportunity)");
-		
+
 		ExecutionResult result = bpmClient.start().subProcess(startable).execute(opportunity);
 		CreateOppResponse response = (CreateOppResponse) result.data().last().get("oppResponse");
 
