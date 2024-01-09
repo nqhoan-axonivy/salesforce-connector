@@ -1,4 +1,4 @@
-package salesforce.connector.demo.enums;
+package com.axonivy.connector.salesforce.enums;
 
 public enum Stage {
 	PROSPECTING("Prospecting"),

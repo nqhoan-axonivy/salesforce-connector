@@ -1,4 +1,4 @@
-package salesforce.connector.demo;
+package com.axonivy.connector.salesforce;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -18,9 +18,9 @@ import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;
 import com.axonivy.connector.salesforce.utils.ConvertUtils;
 
 import ch.ivyteam.ivy.process.call.SubProcessCall;
-import salesforce.connector.demo.dto.ActivityDTO;
-import salesforce.connector.demo.dto.OpportunityDTO;
-import salesforce.connector.demo.enums.Stage;
+import com.axonivy.connector.salesforce.dto.ActivityDTO;
+import com.axonivy.connector.salesforce.dto.OpportunityDTO;
+import com.axonivy.connector.salesforce.enums.Stage;
 
 public class ListOppsBean {
 	private List<Opportunity> opportunities;

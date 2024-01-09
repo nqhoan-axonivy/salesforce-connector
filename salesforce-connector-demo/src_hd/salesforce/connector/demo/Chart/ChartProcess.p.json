@@ -13,7 +13,7 @@
         "callSignature" : "start",
         "input" : {
           "code" : [
-            "import salesforce.connector.demo.ChartBean;",
+            "import com.axonivy.connector.salesforce.ChartBean;",
             "",
             "out.bean = new ChartBean();"
           ]

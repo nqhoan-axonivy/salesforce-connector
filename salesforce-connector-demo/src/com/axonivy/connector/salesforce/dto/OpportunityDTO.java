@@ -1,4 +1,4 @@
-package salesforce.connector.demo.dto;
+package com.axonivy.connector.salesforce.dto;
 
 import java.util.Date;
 

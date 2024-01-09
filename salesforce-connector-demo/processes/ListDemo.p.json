@@ -2,7 +2,7 @@
   "format" : "10.0.0",
   "id" : "18BB73FF80B2F1D9",
   "config" : {
-    "data" : "salesforce.connector.demo.Data"
+    "data" : "com.axonivy.connector.salesforce.Data"
   },
   "elements" : [ {
       "id" : "f0",

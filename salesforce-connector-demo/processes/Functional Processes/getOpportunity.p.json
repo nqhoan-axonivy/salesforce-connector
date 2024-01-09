@@ -3,7 +3,7 @@
   "id" : "18BB87D903C86664",
   "kind" : "CALLABLE_SUB",
   "config" : {
-    "data" : "salesforce.connector.demo.GetOppotunityData"
+    "data" : "com.axonivy.connector.salesforce.GetOppotunityData"
   },
   "elements" : [ {
       "id" : "f0",

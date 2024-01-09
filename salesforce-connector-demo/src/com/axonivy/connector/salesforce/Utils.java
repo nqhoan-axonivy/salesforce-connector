@@ -1,4 +1,4 @@
-package salesforce.connector.demo;
+package com.axonivy.connector.salesforce;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import com.axonivy.connector.salesforce.model.OpportunityUpdateDTO;
 import com.axonivy.connector.salesforce.model.Task;
 
 import ch.ivyteam.ivy.process.call.SubProcessCall;
-import salesforce.connector.demo.dto.OpportunityDTO;
+import com.axonivy.connector.salesforce.dto.OpportunityDTO;
 
 public class Utils {
 	public static String getAccName(String accountId) {

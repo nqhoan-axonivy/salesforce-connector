@@ -13,7 +13,7 @@
         "callSignature" : "start",
         "input" : {
           "code" : [
-            "import salesforce.connector.demo.ListOppsBean;",
+            "import com.axonivy.connector.salesforce.ListOppsBean;",
             "",
             "out.bean = new ListOppsBean();"
           ]
@@ -105,7 +105,7 @@
       "config" : {
         "output" : {
           "code" : [
-            "import salesforce.connector.demo.Utils;",
+            "import com.axonivy.connector.salesforce.Utils;",
             "Utils utils = new Utils();",
             "",
             "",

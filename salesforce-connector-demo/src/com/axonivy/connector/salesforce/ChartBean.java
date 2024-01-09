@@ -1,4 +1,4 @@
-package salesforce.connector.demo;
+package com.axonivy.connector.salesforce;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,8 @@ import org.primefaces.model.charts.optionconfig.title.Title;
 
 import com.axonivy.connector.salesforce.model.Opportunity;
 
-import salesforce.connector.demo.dto.OpportunityDTO;
-import salesforce.connector.demo.enums.Stage;
+import com.axonivy.connector.salesforce.dto.OpportunityDTO;
+import com.axonivy.connector.salesforce.enums.Stage;
 
 public class ChartBean {
 	List<Opportunity> opportunities;
