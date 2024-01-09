@@ -26,5 +26,4 @@ public class ActivityDTO {
 		this.events = events;
 	}
 	
-	
 }

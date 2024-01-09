@@ -177,28 +177,28 @@
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-6 ui-lg-6">
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Assigned To: "/>    #{task.ownerId} 
+												<p:outputLabel value="Assigned To: "/>	#{task.ownerId}
 											</div>
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Subject: "/>    #{task.subject}
+												<p:outputLabel value="Subject: "/>	#{task.subject}
 											</div>
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Due Date: "/>   
+												<p:outputLabel value="Due Date: "/>
 												<h:outputText value="#{task.completedDateTime}">
-													<f:convertDateTime pattern="dd.MM.yyyy" />
+													<f:convertDateTime pattern="dd.MM.yyyy"/>
 												</h:outputText>
 											</div>
 											
 										</div>
 										<div class="ui-g-12 ui-md-6 ui-lg-6">
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Status: "/>    #{task.status}
+												<p:outputLabel value="Status: "/>	#{task.status}
 											</div>		
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Name: "/>    #{task.name}
-											</div>									
+												<p:outputLabel value="Name: "/>	#{task.name}
+											</div>
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Related To: "/>    #{data.bean.selectedOpp.name}
+												<p:outputLabel value="Related To: "/>	#{data.bean.selectedOpp.name}
 											</div>
 										</div>
 									</div>
@@ -213,7 +213,7 @@
 												#{task.description}
 											</div>
 										</div>
-									</div>						
+									</div>
 								</p:tab>
 							</p:accordionPanel>
 						</div>
@@ -226,22 +226,22 @@
 									<div class="ui-g">
 										<div class="ui-g-12 ui-md-6 ui-lg-6">
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Assigned To: "/>    #{event.ownerId} 
+												<p:outputLabel value="Assigned To: "/>	#{event.ownerId} 
 											</div>
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Subject: "/>   #{event.subject}
+												<p:outputLabel value="Subject: "/>	#{event.subject}
 											</div>
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Name: "/>    #{event.name}
+												<p:outputLabel value="Name: "/>	#{event.name}
 											</div>
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Related To: "/>    #{data.bean.selectedOpp.name}
+												<p:outputLabel value="Related To: "/>	#{data.bean.selectedOpp.name}
 											</div>
 											
 										</div>
 										<div class="ui-g-12 ui-md-6 ui-lg-6">
 											<div class="slds-form-element_readonly">
-												<p:outputLabel value="Location: "/>    #{event.location}
+												<p:outputLabel value="Location: "/>	#{event.location}
 											</div>		
 											<div class="slds-form-element_readonly">
 												<p:outputLabel value="Start: "/>
@@ -254,7 +254,7 @@
 												<h:outputText value="#{event.endDateTime}">
 													<f:convertDateTime pattern="dd.MM.yyyy" />
 												</h:outputText>
-											</div>							
+											</div>
 											<div class="slds-form-element_readonly">
 												<p:outputLabel value="All-Day Event: "/>
 												<p:selectBooleanCheckbox value="#{event.isAllDayEvent}" disabled="true"></p:selectBooleanCheckbox>
@@ -273,7 +273,7 @@
 												#{event.description}
 											</div>
 										</div>
-									</div>						
+									</div>
 								</p:tab>
 							</p:accordionPanel>
 						</div>

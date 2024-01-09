@@ -9,7 +9,7 @@ Variables:
 #  myVariable: value
   salesforce-connector:
       auth:
-        subdomain: 
-        clientId: 
-        clientSecret: 
+        subdomain: ''
+        clientId: ''
+        clientSecret: '' 
         useAppPermissions: true

@@ -10,16 +10,16 @@ Variables:
   salesforce-connector:
       auth:
         # Url to the Salesforce user application
-        url: 
+        url: ''
         
         # Subdomain of the User application
-        subdomain: 
+        subdomain: '' 
         
         # Consumer Id to authentication
-        clientId: 
+        clientId: ''
         
         # Consumer Secret to authentication
-        clientSecret: 
+        clientSecret: '' 
         
         # GrantType
         useAppPermissions: true

@@ -13,13 +13,12 @@ public enum Stage {
 	CLOSED_LOST("Closed Lost");
 
 	public final String label;
-	
+
 	Stage(String label) {
 		this.label = label;
 	}
-	
-	public String getLabel()
-    {
-        return label;
-    }
+
+	public String getLabel() {
+		return label;
+	}
 }
