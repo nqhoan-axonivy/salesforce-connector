@@ -3,9 +3,10 @@
 This connector builds the REST API and provides a means to access Salesforce's resources. A client can utilize the REST API to manipulate Salesforce (SF) objects. For instance, to perform **CRUD** operations on an Opportunity object or to query and retrieve data. Salesforce Connector:
 
 - Provides the standard set of Rest APIs to manipulate one specific object of SalesForce Opportunity.
-- Track the status and the number of each status opportunity.
+- Track the status and the number of each status Opportunity.
 - Manipulate the object Opportunity.
-- Build a standard Rest client to apply Salesforce Object Query Language.
+- Build a standard Rest client to apply Salesforce Object Query Language (SOQL).
+
 
 # Configuration
 
@@ -20,8 +21,8 @@ This connector builds the REST API and provides a means to access Salesforce's r
     - Set up Named Credentials to manage and secure access to external services.
 
 
-  ## Integrate Connector in the Project
-  The **Consumer Key** and **Consumer Secret** are retrieved from the **Connected App** and then placed in the `variables.yaml` file.
+  ## Integrate Connector into the Project
+  The **Consumer Key** and **Consumer Secret** are retrieved from the **Connected App** and placed in the `variables.yaml` file.
 
   Authentication information is set up as a global variable and can be updated anytime.
 
@@ -55,7 +56,7 @@ This connector builds the REST API and provides a means to access Salesforce's r
   
   ![plot](/salesforce-connector-product/doc/img/sf-list.png)
   
-  7. Click on Add New button:
+  7. Click on the Add New button:
   
   ![plot](/salesforce-connector-product/doc/img/sf-start-addNew.png)
   
@@ -63,7 +64,7 @@ This connector builds the REST API and provides a means to access Salesforce's r
   
   ![plot](/salesforce-connector-product/doc/img/sf-addNew.png)
   
-  9. Click on Opportunity Name to view detail:
+  9. Click on Opportunity Name to view details:
   
   ![plot](/salesforce-connector-product/doc/img/sf-start-detail.png)
   
@@ -75,7 +76,7 @@ This connector builds the REST API and provides a means to access Salesforce's r
   
   ![plot](/salesforce-connector-product/doc/img/sf-detail-activity.png)
   
-  12. Click on Icon Pencil to Update an Opportunity:
+  12. Click on the icon Pencil to Update an Opportunity:
   
   ![plot](/salesforce-connector-product/doc/img/sf-start-edit.png)
   
@@ -83,7 +84,7 @@ This connector builds the REST API and provides a means to access Salesforce's r
   
   ![plot](/salesforce-connector-product/doc/img/sf-edit.png)
   
-  14. Click on icon Trash to remove an Opportunity:
+  14. Click on the icon Trash to remove an Opportunity:
   
   ![plot](/salesforce-connector-product/doc/img/sf-start-delete.png)
   
