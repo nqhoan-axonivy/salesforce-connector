@@ -7,10 +7,66 @@ This connector builds the REST API and provides a means to access Salesforce's r
 - Manipulate the object Opportunity.
 - Build a standard Rest client to apply Salesforce Object Query Language (SOQL).
 
+## Demo
 
-# Configuration
+  1. Login to the Axon Ivy
+  2. Click **Starts** in the Axon Ivy menu to open the Full Process List
+  3. On the Full Process List, click on **ChartDemo**.
+  
+  ![process-start-chart](/salesforce-connector-product/doc/img/sf-start-chart.png)
+  
+  4. A simple chart for statistical analysis:
+  
+  ![simple-chart](/salesforce-connector-product/doc/img/sf-chart.png)
+  
+  5. On the Full Process List, click on **ListDemo**.
+  
+  ![process-start-list](/salesforce-connector-product/doc/img/sf-start-list.png)
+  
+  6. Opportunity Overview:
+  
+  ![list-opportunity](/salesforce-connector-product/doc/img/sf-list.png)
+  
+  7. Click on the Add New button:
+  
+  ![add-new-opportunity](/salesforce-connector-product/doc/img/sf-start-addNew.png)
+  
+  8. Add new Opportunity:
+  
+  ![add-new-opportunity-popup](/salesforce-connector-product/doc/img/sf-addNew.png)
+  
+  9. Click on Opportunity Name to view details:
+  
+  ![add-new-opportunity-summary](/salesforce-connector-product/doc/img/sf-start-detail.png)
+  
+  10. Opportunity details:
+  
+  ![opportunity-details-dialog](/salesforce-connector-product/doc/img/sf-detail.png)
+  
+  11. Opportunity details Activity:
+  
+  ![opportunity-details-activity](/salesforce-connector-product/doc/img/sf-detail-activity.png)
+  
+  12. Click on the icon Pencil to Update an Opportunity:
+  
+  ![modify-opportunity](/salesforce-connector-product/doc/img/sf-start-edit.png)
+  
+  13. Edit Opportunity:
+  
+  ![modify-opportunity-popup](/salesforce-connector-product/doc/img/sf-edit.png)
+  
+  14. Click on the icon Trash to remove an Opportunity:
+  
+  ![delete-opportunity](/salesforce-connector-product/doc/img/sf-start-delete.png)
+  
+  15. Delete Opportunity:
+  
+  ![delete-opportunity-popup](/salesforce-connector-product/doc/img/sf-delete.png)
 
-  ## Configure on the SF Application
+
+## Configuration
+
+### Configure on the SF Application
   For a client application to access REST API resources, it must be authorized as a trusted visitor. To implement this authorization, utilize a **Connected App** and employ the **OAuth 2.0** authorization flow.
 
   **Important steps**
@@ -21,7 +77,7 @@ This connector builds the REST API and provides a means to access Salesforce's r
     - Set up Named Credentials to manage and secure access to external services.
 
 
-  ## Integrate Connector into the Project
+### Integrate Connector into the Project
   The **Consumer Key** and **Consumer Secret** are retrieved from the **Connected App** and placed in the `variables.yaml` file.
 
   Authentication information is set up as a global variable and can be updated anytime.
@@ -36,64 +92,7 @@ This connector builds the REST API and provides a means to access Salesforce's r
   |salesforce-connector.auth.url               |Salesforce Rest URI                            |https://axonactive3-dev-ed.develop.my.salesforce.com/services/data/v58.0              |
 
 
-
-# Demo
-  1. Login to the Axonivy
-  2. Click **Starts** in the Axon Ivy menu to open the Full Process List
-  3. On the Full Process List, click on **ChartDemo**.
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-start-chart.png)
-  
-  4. A simple chart for statistical analysis:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-chart.png)
-  
-  5. On the Full Process List, click on **ListDemo**.
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-start-list.png)
-  
-  6. Opportunity Overview:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-list.png)
-  
-  7. Click on the Add New button:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-start-addNew.png)
-  
-  8. Add new Opportunity:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-addNew.png)
-  
-  9. Click on Opportunity Name to view details:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-start-detail.png)
-  
-  10. Opportunity details:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-detail.png)
-  
-  11. Opportunity details Activity:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-detail-activity.png)
-  
-  12. Click on the icon Pencil to Update an Opportunity:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-start-edit.png)
-  
-  13. Edit Opportunity:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-edit.png)
-  
-  14. Click on the icon Trash to remove an Opportunity:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-start-delete.png)
-  
-  15. Delete Opportunity:
-  
-  ![plot](/salesforce-connector-product/doc/img/sf-delete.png)
-
-
-# Resources
+## Resources
 [Developer](https://developer.salesforce.com/docs)
 
 [Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)
