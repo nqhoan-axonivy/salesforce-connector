@@ -64,7 +64,7 @@ This connector builds the REST API and provides a means to access Salesforce's r
   ![delete-opportunity-popup](/salesforce-connector-product/doc/img/sf-delete.png)
 
 
-## Configuration
+## Setup
 
 ### Configure on the SF Application
   For a client application to access REST API resources, it must be authorized as a trusted visitor. To implement this authorization, utilize a **Connected App** and employ the **OAuth 2.0** authorization flow.
