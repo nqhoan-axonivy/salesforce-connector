@@ -92,7 +92,7 @@ This connector builds the REST API and provides a means to access Salesforce's r
   |salesforce-connector.auth.url               |Salesforce Rest URI                            |https://axonactive3-dev-ed.develop.my.salesforce.com/services/data/v58.0              |
 
 
-## Resources
+### Resources
 [Developer](https://developer.salesforce.com/docs)
 
 [Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)
